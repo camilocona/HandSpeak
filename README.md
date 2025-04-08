@@ -9,6 +9,7 @@ A continuación se presenta el diagrama de bloques del proyecto:
 
 ---
 
+
 ## Requisitos Funcionales
 
 1. *Procesamiento de Señales Sensoriales*  
