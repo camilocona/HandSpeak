@@ -10,8 +10,8 @@
 #define PIN_ANULAR 5
 #define PIN_MENIQUE 6
 
-#define I2C_SDA 8
-#define I2C_SCL 9
+#define I2C_SDA 20
+#define I2C_SCL 21
 #define LIS3DH_ADDR 0x18 // Dirección I2C GY-511
 
 // Prototipos
@@ -25,6 +25,7 @@ int main() {
     for (int pin = PIN_PULGAR; pin <= PIN_MENIQUE; pin++) {
         gpio_init(pin);
         gpio_set_dir(pin, GPIO_IN);
+        gpio_pull_down(pin); // Importante para evitar pines flotantes
     }
 
     // Inicializar I2C
@@ -75,38 +76,30 @@ bool leer_acelerometro(float *ax, float *ay, float *az) {
     return true;
 }
 
-// Detectar letra con combinación + acelerómetro
+// Detectar letra sin uso de movimiento
 char detectar_letra(uint8_t p, uint8_t i, uint8_t m, uint8_t a, uint8_t me, float ax, float ay, float az) {
-    // Umbral simple de movimiento para las letras con "X"
-    bool movimiento = (ax > 0.3 || ay > 0.3 || az > 0.3);
+    uint8_t cod = (p << 4) | (i << 3) | (m << 2) | (a << 1) | me;
 
-    if (p==0 && i==0 && m==0 && a==0 && me==0) return 'A';
-    if (p==0 && i==1 && m==1 && a==1 && me==1) return movimiento ? 'B' : '-';
-    if (p==0 && i==1 && m==1 && a==1 && me==1) return 'C';
-    if (p==0 && i==1 && m==0 && a==0 && me==0) return 'D';
-    if (p==1 && i==0 && m==0 && a==0 && me==0) return movimiento ? 'E' : '-';
-    if (p==1 && i==0 && m==1 && a==1 && me==1) return 'F';
-    if (p==1 && i==1 && m==0 && a==0 && me==0) return movimiento ? 'G' : '-';
-    if (p==1 && i==1 && m==1 && a==0 && me==0) return movimiento ? 'H' : '-';
-    if (p==0 && i==0 && m==0 && a==0 && me==1) return 'I';
-    if (p==0 && i==0 && m==0 && a==0 && me==1) return movimiento ? 'J' : '-';
-    if (p==1 && i==1 && m==1 && a==0 && me==0) return 'K';
-    if (p==1 && i==1 && m==0 && a==0 && me==0) return 'L';
-    if (p==0 && i==1 && m==1 && a==1 && me==0) return movimiento ? 'M' : '-';
-    if (p==0 && i==1 && m==1 && a==0 && me==0) return 'N';
-    if (p==0 && i==0 && m==0 && a==0 && me==0) return movimiento ? 'O' : '-';
-    if (p==0 && i==1 && m==0 && a==1 && me==1) return 'P';
-    if (p==1 && i==1 && m==1 && a==1 && me==1) return 'Q';
-    if (p==1 && i==0 && m==1 && a==0 && me==0) return 'R';
-    if (p==0 && i==1 && m==0 && a==0 && me==0) return movimiento ? 'S' : '-';
-    if (p==1 && i==0 && m==0 && a==0 && me==0) return 'T';
-    if (p==1 && i==1 && m==0 && a==0 && me==1) return 'U';
-    if (p==0 && i==1 && m==1 && a==0 && me==0) return 'V';
-    if (p==0 && i==1 && m==1 && a==1 && me==0) return 'W';
-    if (p==1 && i==0 && m==0 && a==0 && me==1) return movimiento ? 'X' : '-';
-    if (p==1 && i==0 && m==0 && a==0 && me==1) return 'Y';
-    if (p==0 && i==0 && m==1 && a==1 && me==1) return 'Z';
-    if (p==1 && i==1 && m==1 && a==1 && me==1) return movimiento ? ' ' : '-';
+    switch (cod) {
+        case 0b00000: return 'A';
+        case 0b01111: return 'C';
+        case 0b01000: return 'D';
+        //case 0b10000: return 'E';
+        case 0b10111: return 'F';
+        //case 0b11000: return 'G';
+        //case 0b11100: return 'H';
+        case 0b00001: return 'I';
+        case 0b01110: return 'M';
+        case 0b01100: return 'N';
+        case 0b01010: return 'P'; //01010
+        case 0b11111: return 'Q';
+        case 0b10100: return 'R';
+        case 0b11001: return 'U';
+        case 0b10001: return 'Y';
 
-    return '-';
+        // letras dependientes de movimiento han sido eliminadas
+        // B, J, O, S, X, Z, espacio no se incluyen aquí
+
+        default: return '-';
+    }
 }
