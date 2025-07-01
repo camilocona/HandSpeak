@@ -46,7 +46,7 @@ pico_enable_stdio_usb(HandSpeak_Main 1)
 
 # Add the standard library to the build
 target_link_libraries(HandSpeak_Main
-        pico_stdlib hardware_adc)
+        pico_stdlib hardware_adc hardware_i2c hardware_gpio)
 
 # Add the standard include files to the build
 target_include_directories(HandSpeak_Main PRIVATE
