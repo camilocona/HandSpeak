@@ -50,4 +50,5 @@ Con este montaje se presentaron estos problemas:
 - Se adacto el nuevo guante con el nuevo circuito de protoboard pero se encontro el problema de la protoboard, ya que esta trae las pistas muy anchas y las resistencias quedaban con mal contacto, generando valores erroneos en los divisores.
 ![nuevo guante](Montaje_Circuito_Guante_Sin_IMU.jpg)
 - Se opto como ultimo circuito un montaje en Baquela universal para evitar errores de contactos y de esta manera tener un circuito mas compacto.
+- Se agrego la IMU(GY91) al guante para iniciar las pruebas con movimiento.
 ![nuevo pcb](PCB.jpg)
