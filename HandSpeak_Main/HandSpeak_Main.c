@@ -110,7 +110,7 @@ int main() {
         float ax = 0, ay = 0, az = 0;
         bool imu_mov = false;
         if (leer_acelerometro(&ax, &ay, &az)) {
-            float magnitud = sqrtf(axax + ayay + az*az);
+            float magnitud = sqrtf(ax*ax + ay*ay + az*az);
             float delta = fabsf(magnitud - 1.0f);
             imu_mov = delta > IMU_UMBRAL;
 
