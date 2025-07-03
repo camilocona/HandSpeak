@@ -1,4 +1,4 @@
-# Avances poryecto final
+# Avances proyecto final
 
 ---
 
