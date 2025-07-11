@@ -45,10 +45,11 @@ y los pines GPIO 16 (TX) y 17 (RX) para comunicarse con el módulo Bluetooth.*/
 #define SDA_PIN 26
 #define SCL_PIN 27
 //Todos los dispositivos conectados al mismo bus (SDA/SCL) deben tener una dirección única, como si fuera una dirección postal.
-Cuando la Raspberry Pi Pico (el maestro) quiere hablar con el MPU9250 (el esclavo), necesita saber a qué dirección enviar comandos o leer datos. Esa dirección es 0x68.
+//Cuando la Raspberry Pi Pico (el maestro) quiere hablar con el MPU9250 (el esclavo), necesita saber a qué dirección enviar comandos o leer datos. Esa dirección es 0x68.
 #define MPU9250_ADDR 0x68
 #define PWR_MGMT_1 0x6B //Es el registro de gestión de energía 1 (Power Management 1) del MPU9250.
-#define ACCEL_XOUT_H 0x3B //se hace para definir una constante simbólica que representa la dirección del registro del sensor MPU9250 donde comienza la lectura de datos del acelerómetro, 
+#define ACCEL_XOUT_H 0x3B //se hace para definir una constante simbólica que representa la dirección del registro del sensor MPU9250 
+//donde comienza la lectura de datos del acelerómetro, 
 //específicamente el byte más significativo (High Byte) del eje X, El MPU9250 entrega los datos del acelerómetro en formato big-endian, es decir:
 //El byte más importante (MSB) va primero, en ACCEL_XOUT_H
 
@@ -70,13 +71,19 @@ int64_t repetir_lectura_imu(alarm_id_t id, void *user_data) {
 // ------------------ Inicialización MPU9250 ------------------
 //"Escribe el valor 0x00 en el registro 0x6B, para salir del modo sleep y comenzar a funcionar."
 void mpu9250_init() {
-    uint8_t buf[] = {PWR_MGMT_1, 0x00}; //Quitar modo sleep, Crea un arreglo de 2 bytes: Primer byte: la dirección del registro PWR_MGMT_1 (0x6B) Segundo byte: el valor 0x00, que desactiva el modo de suspensión
-    i2c_write_blocking(I2C_PORT, MPU9250_ADDR, buf, 2, false); //False indica que sí se debe enviar una condición de STOP al final de la transmisión I²C. En I²C, una condición STOP indica que la transmisión ha terminado, liberando el bus.
+    uint8_t buf[] = {PWR_MGMT_1, 0x00}; //Quitar modo sleep, Crea un arreglo de 2 bytes: 
+    //Primer byte: la dirección del registro PWR_MGMT_1 (0x6B) Segundo byte: el valor 0x00, que desactiva el modo de suspensión
+    i2c_write_blocking(I2C_PORT, MPU9250_ADDR, buf, 2, false); //False indica que sí se debe enviar una condición de STOP al final de la transmisión I²C. 
+    //En I²C, una condición STOP indica que la transmisión ha terminado, liberando el bus.
 }
 
 // ------------------ Lectura de acelerómetro ------------------
-bool leer_acelerometro(float *ax, float *ay, float *az) { //Devuelve true si la lectura fue exitosa, false si falló. Recibe tres punteros a float: ax, ay, az, donde se colocarán las aceleraciones en g.
-    uint8_t reg = ACCEL_XOUT_H; //la dirección del registro donde comienzan los datos del acelerómetro. Guarda esa dirección en la variable reg para usarla como referencia en la lectura I²C.
+bool leer_acelerometro(float *ax, float *ay, float *az) { //Devuelve true si la lectura fue exitosa, false si falló. 
+    //Recibe tres punteros a float: ax, ay, az, donde se colocarán las aceleraciones en g.
+    
+    uint8_t reg = ACCEL_XOUT_H; //la dirección del registro donde comienzan los datos del acelerómetro. 
+    //Guarda esa dirección en la variable reg para usarla como referencia en la lectura I²C.
+    
     uint8_t datos[6]; //Arreglo donde se almacenarán los 6 bytes leídos: 2 bytes para X (MSB + LSB) 2 bytes para Y 2 bytes para Z
     if (i2c_write_blocking(I2C_PORT, MPU9250_ADDR, &reg, 1, true) < 0) return false; 
       /*Envía al sensor el byte 0x3B (inicio de datos de aceleración).
@@ -168,7 +175,7 @@ int main() {
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART); //Configura los pines para transmitir (TX) y recibir (RX) datos vía Bluetooth.
 
 
-    char ultima_letra = '-'; 
+    char ultima_letra = '-'; //sirve para almacenar la última letra que fue detectada y enviada, con el propósito de evitar repeticiones innecesarias.
 
     while (true) {
         // Leer estado de dedos
@@ -179,26 +186,28 @@ int main() {
         uint8_t me = !!gpio_get(PIN_MENIQUE);
 
         // Solo leer IMU y detectar letra si la bandera se activó
+        //En cada iteración del bucle principal, el código "pregunta" constantemente (polling) si la bandera flag_tiempo_imu se activó.
         if (flag_tiempo_imu) {
             flag_tiempo_imu = false;
 
             float ax = 0, ay = 0, az = 0;
-            bool imu_mov = false;
+            bool imu_mov = false; //por defecto se asume que el guante está quieto.
 
             if (leer_acelerometro(&ax, &ay, &az)) {
-                float magnitud = sqrtf(ax * ax + ay * ay + az * az);
-                float delta = fabsf(magnitud - 1.0f);
-                imu_mov = delta > IMU_UMBRAL;
+                float magnitud = sqrtf(ax * ax + ay * ay + az * az); //Se calcula la magnitud total del vector de aceleración.
+                //si el dispositivo está quieto, la magnitud del vector debe ser aproximadamente 1.0g (solo siente la gravedad). Si se está moviendo, esta magnitud cambia.
+                float delta = fabsf(magnitud - 1.0f); //Calcula la diferencia (en valor absoluto) entre la magnitud total calculada y el valor esperado en reposo (1g).
+                imu_mov = delta > IMU_UMBRAL; //Evalúa si el cambio detectado en la aceleración (delta) es suficiente para considerarse movimiento.
 
                 printf("Magnitud: %.3f | Delta: %.3f | IMU: %s\n", magnitud, delta, imu_mov ? "MOV" : "QUIETO");
             }
 
-            char letra = detectar_letra(p, i, m, a, me, imu_mov);
+            char letra = detectar_letra(p, i, m, a, me, imu_mov); //se utiliza para traducir la posición de los dedos y el movimiento del guante (detectado con la IMU) en una letra del abecedario en lenguaje de señas
 
-            if (letra != '-' && letra != ultima_letra) {
+            if (letra != '-' && letra != ultima_letra) { //	Comprueba si se detectó una nueva letra válida
                 printf("P:%d I:%d M:%d A:%d Me:%d | IMU: %s\n", p, i, m, a, me, imu_mov ? "MOV" : "QUIETO");
                 printf("Letra detectada: %c\n", letra);
-                ultima_letra = letra;
+                ultima_letra = letra; //Guarda la letra detectada como la última
 
                 uart_putc(UART_ID, letra); // <-- enviar letra por Bluetooth
                 
@@ -208,6 +217,10 @@ int main() {
             }
         }
 
-        tight_loop_contents();  // Reduce consumo mientras hace polling
+        tight_loop_contents();  // 	Función del SDK de la Pico usada dentro de bucles infinitos. Reduce consumo mientras hace polling
+        /*es un marcador semántico que le dice al compilador y al sistema: “Este bucle no hace nada más que girar esperando eventos. 
+        Puedes optimizar el consumo de energía”, si esto no estuviera El procesador podría quedarse en un ciclo ocupado constantemente, consumiendo más energía.*/
+
+
     }
 }
