@@ -5,7 +5,7 @@
 El sistema funciona a través de un guante electrónico, el cual detecta las posiciones de los dedos y la orientación de la mano utilizando sensores flexibles y un acelerómetro/giroscopio (MPU6050). Luego, un microcontrolador Raspberry Pi Pico W procesa estos datos mediante un algoritmo programado en C, que reconoce letras del alfabeto dactilológico. La información reconocida será enviada de forma inalámbrica a una aplicación móvil, donde se visualizarán los resultados en tiempo real.
 
 A continuación se presenta el diagrama de bloques del proyecto:  
-*![Diagrama de Bloques](diagrama.jpg)*
+*![Diagrama de Bloques](diagrama.png)*
 
 ---
 
@@ -19,7 +19,7 @@ A continuación se presenta el diagrama de bloques del proyecto:
    El sistema debe ser capaz de distinguir entre múltiples configuraciones de los dedos y orientaciones de la mano, para reconocer un conjunto definido de letras del alfabeto en lengua de señas. El reconocimiento se realizará localmente en el microcontrolador sin intervención de servidores externos, garantizando independencia y rapidez en la ejecución.
 
 3. *Comunicación Inalámbrica*  
-   Una vez reconocida la letra correspondiente, el microcontrolador debe establecer una conexión inalámbrica mediante Wi-Fi utilizando el módulo integrado de la Raspberry Pi Pico W, enviando la letra a una aplicación móvil a través de un protocolo de comunicación.
+   Una vez reconocida la letra correspondiente, el microcontrolador debe establecer una conexión Bluetooth utilizando el módulo HC-05 integrado para la Raspberry Pi Pico W, enviando la letra a una aplicación móvil a través de un protocolo de comunicación.
 
 4. *Gestión de Energía*  
    El guante debe estar alimentado por una batería recargable o fuente portátil, permitiendo una autonomía mínima de dos horas en funcionamiento continuo sin necesidad de recarga.
@@ -47,8 +47,8 @@ A continuación se presenta el diagrama de bloques del proyecto:
    El sistema debe operar correctamente por un mínimo de 10 minutos continuos, sin fallos o reinicios inesperados.
 
 5. *Compatibilidad*  
-   La aplicación móvil debe ser compatible con al menos Android 10 o superior, garantizando su uso en la mayoría de los dispositivos móviles actuales.  
-   La comunicación debe ser independiente de redes externas (sin requerir internet), utilizando únicamente la red local Wi-Fi punto a punto o hotspot.
+   La aplicación móvil debe ser compatible con al menos Android 14 o superior, garantizando su uso en la mayoría de los dispositivos móviles actuales.  
+   La comunicación debe ser independiente de redes externas (sin requerir internet), utilizando únicamente Bluetooth.
 
 6. *Usabilidad*  
    La interfaz de la aplicación debe ser intuitiva y accesible para usuarios sin experiencia técnica, con tipografía clara, navegación sencilla y retroalimentación inmediata ante cada entrada.
