@@ -42,7 +42,7 @@ y los pines GPIO 16 (TX) y 17 (RX) para comunicarse con el módulo Bluetooth.*/
 //Todos los dispositivos conectados al mismo bus (SDA/SCL) deben tener una dirección única, como si fuera una dirección postal.
 //Cuando la Raspberry Pi Pico (el maestro) quiere hablar con el MPU9250 (el esclavo), necesita saber a qué dirección enviar comandos o leer datos. Esa dirección es 0x68.
 #define MPU9250_ADDR 0x68
-#define PWR_MGMT_1 0x6B //Es el registro de gestión de energía 1 (Power Management 1) del MPU9250.
+#define PWR_MGMT_1 0x6B //Se utiliza para quitar el modo sleep. Definición de constante que le da un nombre simbólico a la dirección del registro de gestión de energía del sensor MPU9250 (IMU). 
 #define ACCEL_XOUT_H 0x3B //se hace para definir una constante simbólica que representa la dirección del registro del sensor MPU9250 
 //donde comienza la lectura de datos del acelerómetro, 
 //específicamente el byte más significativo (High Byte) del eje X, El MPU9250 entrega los datos del acelerómetro en formato big-endian, es decir:
