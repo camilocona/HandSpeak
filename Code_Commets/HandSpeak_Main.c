@@ -1,7 +1,6 @@
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
-//#include "hardware/rtc.h"
 #include "hardware/timer.h"
 #include <stdio.h>
 #include <string.h>
@@ -33,10 +32,6 @@ y los pines GPIO 16 (TX) y 17 (RX) para comunicarse con el módulo Bluetooth.*/
 #define PIN_MEDIO 5
 #define PIN_ANULAR 7
 #define PIN_MENIQUE 8
-
-// ------------------ I2C del sistema de letras (se deja por compatibilidad) ------------------
-#define I2C_SDA 20
-#define I2C_SCL 21
 
 // ------------------ I2C para GY-91 (MPU9250 en i2c1, GP26/27) ------------------
 /*- Define que el bus I2C que se va a usar es el **I2C1** del microcontrolador (la RP2040 tiene dos: `i2c0` e `i2c1`).
