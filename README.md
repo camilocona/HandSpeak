@@ -188,11 +188,20 @@ El siguiente paso fue la implementacion del bluetooth como dispositivo de comuni
   <em>Figura 11. Circuito con bluetooth.</em>
 </p>
 
-
-![nuevo bluetooth](Fotos_proyecto/Aplicacion.jpg)
+<p align="center">
+  <img src="Fotos_proyecto/Aplicacion.jpg" alt="Aplicacion" width="400"/>
+  <br>
+  <em>Figura 12. Aplicación.</em>
+</p>
 
 Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia HC-05 o con esa referencia fue que se compro.
-![bluetooth_HC-08](Fotos_proyecto/Bluetooth_HC-08.jpg)
+
+
+<p align="center">
+  <img src="Fotos_proyecto/Bluetooth_HC-08.jpg" alt="Bluetooth_HC-08" width="400"/>
+  <br>
+  <em>Figura 13. Bluetooth con la referencia mala.</em>
+</p>
 
 Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
 
