@@ -97,3 +97,5 @@ Para  solucionar este problema se cambio el modulo por un modulo que verdaderame
 
 Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
 ![BLuetooth_HC-05](Fotos_proyecto/Aplicacion_funcionando.jpg)
+
+Con la solucion al problema del bluetooth se logro mostrar todas las letras del abecedario en lenguaje de señas por mediod la aplicación.
