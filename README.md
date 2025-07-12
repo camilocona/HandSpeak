@@ -13,7 +13,10 @@ Se comenzo con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
   <img src="Fotos_proyecto/medicion_sensores.jpg" alt="sensore_flex" width="400"/>
+  <br>
+  <em>Figura 1. Verificación de sensores flex</em>
 </p>
+
 ---
 
 Se realizo la proteccion de los sensores flex para evitar daños en estos a la hora de acoplarlos en el guante.
