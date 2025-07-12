@@ -1,0 +1,281 @@
+\doxysection{Hand\+Speak\+\_\+\+Main.\+c File Reference}
+\hypertarget{_hand_speak___main_8c}{}\label{_hand_speak___main_8c}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+
+
+Programa principal para el proyecto Hand\+Speak en Raspberry Pi Pico.  
+
+
+{\ttfamily \#include "{}pico/stdlib.\+h"{}}\newline
+{\ttfamily \#include "{}hardware/i2c.\+h"{}}\newline
+{\ttfamily \#include "{}hardware/gpio.\+h"{}}\newline
+{\ttfamily \#include "{}hardware/timer.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}hardware/uart.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a1de69c73f829a03f46f5e7690da7e79a}{UART\+\_\+\+ID}}~uart0
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_ad4455691936f92fdd6c37566fc58ba1f}{BAUD\+\_\+\+RATE}}~9600
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a6c82a6844388a551e8f06d249598989e}{UART\+\_\+\+TX\+\_\+\+PIN}}~16
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_aa37eca6fe61f6938d925975dff27c8fd}{UART\+\_\+\+RX\+\_\+\+PIN}}~17
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_ac2d6387ca4e0dce9b14c4d5671d99fc8}{PIN\+\_\+\+PULGAR}}~3
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a6f1028174f18eb4fc674fbbe940b9c23}{PIN\+\_\+\+INDICE}}~4
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_ac199fe94decef46c29a15ed9b927f429}{PIN\+\_\+\+MEDIO}}~5
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a2f370496fc0880205935a2f29ddd5e3d}{PIN\+\_\+\+ANULAR}}~7
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a7f0f429a7d7a31edf2f72a34747505a8}{PIN\+\_\+\+MENIQUE}}~8
+\item 
+\Hypertarget{_hand_speak___main_8c_ad9ecf80e1eac083d16ec47f9d3aeb39f}\label{_hand_speak___main_8c_ad9ecf80e1eac083d16ec47f9d3aeb39f} 
+\#define {\bfseries I2\+C\+\_\+\+PORT}~i2c1
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a526d580d324bce60a3e964066fae77e3}{SDA\+\_\+\+PIN}}~26
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a06c967e78bcedcee909a70764f879433}{SCL\+\_\+\+PIN}}~27
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_ac93b599d4f074c20da9a3638d5f20d90}{MPU9250\+\_\+\+ADDR}}~0x68
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a96169eb207e721c1546cea9ffd8a35e4}{PWR\+\_\+\+MGMT\+\_\+1}}~0x6B
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a94b93aa4aabbe7caec7884ddb46b531b}{ACCEL\+\_\+\+XOUT\+\_\+H}}~0x3B
+\item 
+\#define \mbox{\hyperlink{_hand_speak___main_8c_a1fc28f8c10b528efe59a44b3e9aca045}{IMU\+\_\+\+UMBRAL}}~0.\+05f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{_hand_speak___main_8c_a1417ac8cfde20553686e94e1bf66d0ec}{repetir\+\_\+lectura\+\_\+imu}} (alarm\+\_\+id\+\_\+t id, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Callback del timer para activar la lectura de la IMU. \end{DoxyCompactList}\item 
+\Hypertarget{_hand_speak___main_8c_ace057bf4740d835fc5f75c3307cb433b}\label{_hand_speak___main_8c_ace057bf4740d835fc5f75c3307cb433b} 
+void {\bfseries mpu9250\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el MPU9250 para quitarlo del modo sleep. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_hand_speak___main_8c_ab4391282635fc808b8ba043e71beb30f}{leer\+\_\+acelerometro}} (float \texorpdfstring{$\ast$}{*}ax, float \texorpdfstring{$\ast$}{*}ay, float \texorpdfstring{$\ast$}{*}az)
+\begin{DoxyCompactList}\small\item\em Lee los valores de aceleración en X, Y y Z del MPU9250. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{_hand_speak___main_8c_aebf75554b474f03fc7ddf651f081c96e}{detectar\+\_\+letra}} (uint8\+\_\+t p, uint8\+\_\+t i, uint8\+\_\+t m, uint8\+\_\+t a, uint8\+\_\+t me, bool imu\+\_\+activo)
+\begin{DoxyCompactList}\small\item\em Determina la letra detectada según el estado de los dedos y movimiento. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_hand_speak___main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Función principal del programa Hand\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{_hand_speak___main_8c_ac97d0bb524a825cbdb3c3fc1b9209e2c}{flag\+\_\+tiempo\+\_\+imu}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Programa principal para el proyecto Hand\+Speak en Raspberry Pi Pico. 
+
+Este programa lee los estados de los dedos a través de pines GPIO, usa un MPU9250 vía I2C para detectar movimiento con la IMU, y envía letras codificadas por UART al módulo Bluetooth HC-\/05.
+
+Proyecto adaptado para usar con el SDK de Raspberry Pi Pico.
+
+\begin{DoxyAuthor}{Authors}
+
+\begin{DoxyItemize}
+\item Maria Valentina Quiroga Alzate
+\item Mario Andrés Leal Galvis
+\item Simón Llano Cárdenas
+\item Camilo Andrés Anacona Anacona 
+\end{DoxyItemize}
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_hand_speak___main_8c_a94b93aa4aabbe7caec7884ddb46b531b}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!ACCEL\_XOUT\_H@{ACCEL\_XOUT\_H}}
+\index{ACCEL\_XOUT\_H@{ACCEL\_XOUT\_H}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{ACCEL\_XOUT\_H}{ACCEL\_XOUT\_H}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a94b93aa4aabbe7caec7884ddb46b531b} 
+\#define ACCEL\+\_\+\+XOUT\+\_\+H~0x3B}
+
+Registro de datos del acelerómetro \Hypertarget{_hand_speak___main_8c_ad4455691936f92fdd6c37566fc58ba1f}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!BAUD\_RATE@{BAUD\_RATE}}
+\index{BAUD\_RATE@{BAUD\_RATE}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{BAUD\_RATE}{BAUD\_RATE}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ad4455691936f92fdd6c37566fc58ba1f} 
+\#define BAUD\+\_\+\+RATE~9600}
+
+Velocidad de UART en baudios \Hypertarget{_hand_speak___main_8c_a1fc28f8c10b528efe59a44b3e9aca045}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!IMU\_UMBRAL@{IMU\_UMBRAL}}
+\index{IMU\_UMBRAL@{IMU\_UMBRAL}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{IMU\_UMBRAL}{IMU\_UMBRAL}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a1fc28f8c10b528efe59a44b3e9aca045} 
+\#define IMU\+\_\+\+UMBRAL~0.\+05f}
+
+Umbral en \textquotesingle{}g\textquotesingle{} para detectar movimiento \Hypertarget{_hand_speak___main_8c_ac93b599d4f074c20da9a3638d5f20d90}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!MPU9250\_ADDR@{MPU9250\_ADDR}}
+\index{MPU9250\_ADDR@{MPU9250\_ADDR}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_ADDR}{MPU9250\_ADDR}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ac93b599d4f074c20da9a3638d5f20d90} 
+\#define MPU9250\+\_\+\+ADDR~0x68}
+
+Dirección I2C del MPU9250 \Hypertarget{_hand_speak___main_8c_a2f370496fc0880205935a2f29ddd5e3d}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PIN\_ANULAR@{PIN\_ANULAR}}
+\index{PIN\_ANULAR@{PIN\_ANULAR}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_ANULAR}{PIN\_ANULAR}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a2f370496fc0880205935a2f29ddd5e3d} 
+\#define PIN\+\_\+\+ANULAR~7}
+
+GPIO para dedo anular \Hypertarget{_hand_speak___main_8c_a6f1028174f18eb4fc674fbbe940b9c23}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PIN\_INDICE@{PIN\_INDICE}}
+\index{PIN\_INDICE@{PIN\_INDICE}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_INDICE}{PIN\_INDICE}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a6f1028174f18eb4fc674fbbe940b9c23} 
+\#define PIN\+\_\+\+INDICE~4}
+
+GPIO para dedo índice \Hypertarget{_hand_speak___main_8c_ac199fe94decef46c29a15ed9b927f429}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PIN\_MEDIO@{PIN\_MEDIO}}
+\index{PIN\_MEDIO@{PIN\_MEDIO}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_MEDIO}{PIN\_MEDIO}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ac199fe94decef46c29a15ed9b927f429} 
+\#define PIN\+\_\+\+MEDIO~5}
+
+GPIO para dedo medio \Hypertarget{_hand_speak___main_8c_a7f0f429a7d7a31edf2f72a34747505a8}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PIN\_MENIQUE@{PIN\_MENIQUE}}
+\index{PIN\_MENIQUE@{PIN\_MENIQUE}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_MENIQUE}{PIN\_MENIQUE}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a7f0f429a7d7a31edf2f72a34747505a8} 
+\#define PIN\+\_\+\+MENIQUE~8}
+
+GPIO para dedo meñique \Hypertarget{_hand_speak___main_8c_ac2d6387ca4e0dce9b14c4d5671d99fc8}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PIN\_PULGAR@{PIN\_PULGAR}}
+\index{PIN\_PULGAR@{PIN\_PULGAR}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PIN\_PULGAR}{PIN\_PULGAR}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ac2d6387ca4e0dce9b14c4d5671d99fc8} 
+\#define PIN\+\_\+\+PULGAR~3}
+
+GPIO para dedo pulgar \Hypertarget{_hand_speak___main_8c_a96169eb207e721c1546cea9ffd8a35e4}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!PWR\_MGMT\_1@{PWR\_MGMT\_1}}
+\index{PWR\_MGMT\_1@{PWR\_MGMT\_1}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PWR\_MGMT\_1}{PWR\_MGMT\_1}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a96169eb207e721c1546cea9ffd8a35e4} 
+\#define PWR\+\_\+\+MGMT\+\_\+1~0x6B}
+
+Registro de power management \Hypertarget{_hand_speak___main_8c_a06c967e78bcedcee909a70764f879433}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!SCL\_PIN@{SCL\_PIN}}
+\index{SCL\_PIN@{SCL\_PIN}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{SCL\_PIN}{SCL\_PIN}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a06c967e78bcedcee909a70764f879433} 
+\#define SCL\+\_\+\+PIN~27}
+
+GPIO para SCL \Hypertarget{_hand_speak___main_8c_a526d580d324bce60a3e964066fae77e3}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!SDA\_PIN@{SDA\_PIN}}
+\index{SDA\_PIN@{SDA\_PIN}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{SDA\_PIN}{SDA\_PIN}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a526d580d324bce60a3e964066fae77e3} 
+\#define SDA\+\_\+\+PIN~26}
+
+GPIO para SDA \Hypertarget{_hand_speak___main_8c_a1de69c73f829a03f46f5e7690da7e79a}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!UART\_ID@{UART\_ID}}
+\index{UART\_ID@{UART\_ID}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{UART\_ID}{UART\_ID}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a1de69c73f829a03f46f5e7690da7e79a} 
+\#define UART\+\_\+\+ID~uart0}
+
+UART usada para Bluetooth \Hypertarget{_hand_speak___main_8c_aa37eca6fe61f6938d925975dff27c8fd}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!UART\_RX\_PIN@{UART\_RX\_PIN}}
+\index{UART\_RX\_PIN@{UART\_RX\_PIN}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{UART\_RX\_PIN}{UART\_RX\_PIN}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_aa37eca6fe61f6938d925975dff27c8fd} 
+\#define UART\+\_\+\+RX\+\_\+\+PIN~17}
+
+Pin GPIO para RX \Hypertarget{_hand_speak___main_8c_a6c82a6844388a551e8f06d249598989e}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!UART\_TX\_PIN@{UART\_TX\_PIN}}
+\index{UART\_TX\_PIN@{UART\_TX\_PIN}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{UART\_TX\_PIN}{UART\_TX\_PIN}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a6c82a6844388a551e8f06d249598989e} 
+\#define UART\+\_\+\+TX\+\_\+\+PIN~16}
+
+Pin GPIO para TX 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_hand_speak___main_8c_aebf75554b474f03fc7ddf651f081c96e}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!detectar\_letra@{detectar\_letra}}
+\index{detectar\_letra@{detectar\_letra}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{detectar\_letra()}{detectar\_letra()}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_aebf75554b474f03fc7ddf651f081c96e} 
+char detectar\+\_\+letra (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{p}{, }\item[{uint8\+\_\+t}]{i}{, }\item[{uint8\+\_\+t}]{m}{, }\item[{uint8\+\_\+t}]{a}{, }\item[{uint8\+\_\+t}]{me}{, }\item[{bool}]{imu\+\_\+activo}{}\end{DoxyParamCaption})}
+
+
+
+Determina la letra detectada según el estado de los dedos y movimiento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Estado del pulgar (0 o 1) \\
+\hline
+{\em i} & Estado del índice (0 o 1) \\
+\hline
+{\em m} & Estado del medio (0 o 1) \\
+\hline
+{\em a} & Estado del anular (0 o 1) \\
+\hline
+{\em me} & Estado del meñique (0 o 1) \\
+\hline
+{\em imu\+\_\+activo} & true si hay movimiento detectado por la IMU \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char Letra detectada, \textquotesingle{}-\/\textquotesingle{} si no se detecta ninguna 
+\end{DoxyReturn}
+\Hypertarget{_hand_speak___main_8c_ab4391282635fc808b8ba043e71beb30f}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!leer\_acelerometro@{leer\_acelerometro}}
+\index{leer\_acelerometro@{leer\_acelerometro}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{leer\_acelerometro()}{leer\_acelerometro()}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ab4391282635fc808b8ba043e71beb30f} 
+bool leer\+\_\+acelerometro (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{ax}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{ay}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{az}{}\end{DoxyParamCaption})}
+
+
+
+Lee los valores de aceleración en X, Y y Z del MPU9250. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ax} & Puntero para almacenar aceleración en X (en \textquotesingle{}g\textquotesingle{}) \\
+\hline
+{\em ay} & Puntero para almacenar aceleración en Y (en \textquotesingle{}g\textquotesingle{}) \\
+\hline
+{\em az} & Puntero para almacenar aceleración en Z (en \textquotesingle{}g\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la lectura fue exitosa, false si falló. 
+\end{DoxyReturn}
+\Hypertarget{_hand_speak___main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!main@{main}}
+\index{main@{main}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Función principal del programa Hand\+Speak. 
+
+Inicializa GPIOs, I2C, IMU y UART, detecta el estado de los dedos y envía la letra detectada por Bluetooth.
+
+\begin{DoxyReturn}{Returns}
+int Nunca retorna, ciclo infinito. 
+\end{DoxyReturn}
+\Hypertarget{_hand_speak___main_8c_a1417ac8cfde20553686e94e1bf66d0ec}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!repetir\_lectura\_imu@{repetir\_lectura\_imu}}
+\index{repetir\_lectura\_imu@{repetir\_lectura\_imu}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{repetir\_lectura\_imu()}{repetir\_lectura\_imu()}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_a1417ac8cfde20553686e94e1bf66d0ec} 
+int64\+\_\+t repetir\+\_\+lectura\+\_\+imu (\begin{DoxyParamCaption}\item[{alarm\+\_\+id\+\_\+t}]{id}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data}{}\end{DoxyParamCaption})}
+
+
+
+Callback del timer para activar la lectura de la IMU. 
+
+Programa una nueva alarma cada 3 segundos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & ID de la alarma \\
+\hline
+{\em user\+\_\+data} & Usado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int64\+\_\+t Siempre retorna 0 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_hand_speak___main_8c_ac97d0bb524a825cbdb3c3fc1b9209e2c}\index{HandSpeak\_Main.c@{HandSpeak\_Main.c}!flag\_tiempo\_imu@{flag\_tiempo\_imu}}
+\index{flag\_tiempo\_imu@{flag\_tiempo\_imu}!HandSpeak\_Main.c@{HandSpeak\_Main.c}}
+\doxysubsubsection{\texorpdfstring{flag\_tiempo\_imu}{flag\_tiempo\_imu}}
+{\footnotesize\ttfamily \label{_hand_speak___main_8c_ac97d0bb524a825cbdb3c3fc1b9209e2c} 
+volatile bool flag\+\_\+tiempo\+\_\+imu = false}
+
+Bandera activada por timer 

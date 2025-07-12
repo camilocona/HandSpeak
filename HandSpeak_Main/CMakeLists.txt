@@ -34,29 +34,29 @@ project(HandSpeak_Main C CXX ASM)
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
-
-add_executable(HandSpeak_Main HandSpeak_Main.c )
+add_executable(HandSpeak_Main HandSpeak_Main.c)
 
 pico_set_program_name(HandSpeak_Main "HandSpeak_Main")
 pico_set_program_version(HandSpeak_Main "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(HandSpeak_Main 0)
+pico_enable_stdio_uart(HandSpeak_Main 1)
 pico_enable_stdio_usb(HandSpeak_Main 1)
 
 # Add the standard library to the build
 target_link_libraries(HandSpeak_Main
-        pico_stdlib hardware_adc hardware_i2c hardware_gpio)
+    pico_stdlib
+    hardware_adc
+    hardware_i2c
+    hardware_gpio
+    hardware_timer
+    hardware_uart
+)
 
 # Add the standard include files to the build
 target_include_directories(HandSpeak_Main PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+    ${CMAKE_CURRENT_LIST_DIR}
 )
 
-# Add any user requested libraries
-target_link_libraries(HandSpeak_Main 
-        
-        )
-
+# Generate .uf2, .bin, etc.
 pico_add_extra_outputs(HandSpeak_Main)
-
