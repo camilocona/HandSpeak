@@ -8,7 +8,7 @@ HandSpeak consiste en el diseño e implementación de un guante inteligente capa
 Este sistema busca no solo mejorar la interacción cotidiana de las personas sordas, sino también aportar a la educación, la accesibilidad digital y la construcción de entornos más inclusivos, consolidándose como una herramienta de apoyo en la eliminación de barreras comunicativas.
 
 ---
-
+## Procedimiento
 Se comenzo con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
