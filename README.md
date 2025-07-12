@@ -173,16 +173,28 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/Montaje_Circuito_Guante_Sin_IMU.jpg" alt="Circuit_Sin_IMU" width="400"/>
   <br>
-  <em>Figura 9. Montaje del circuito sin IMU 2.0.</em>
+  <em>Figura 9. Montaje del circuito sin IMU.</em>
 </p>
 
 
 - Se opto como ultimo circuito un montaje en Baquela universal para evitar errores de contactos y de esta manera tener un circuito mas compacto.
 - Se agrego la IMU(GY91) al guante para iniciar las pruebas con movimiento, obteniendo buenos resultados con esta referencia de IMU.
-![nuevo pcb](Fotos_proyecto/PCB.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/PCB.jpg" alt="PCB" width="400"/>
+  <br>
+  <em>Figura 10. Montaje en baquela universal.</em>
+</p>
 
 El siguiente paso fue la implementacion del bluetooth como dispositivo de comunicación y de la creacion de una aplicación movil para mostrar las letras en lenguaje de señas a traves del celular.
-![nuevo bluetooth](Fotos_proyecto/Circuito_completo.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/Circuito_completo.jpg" alt="Circuito_completo" width="400"/>
+  <br>
+  <em>Figura 11. Circuito con bluetooth.</em>
+</p>
+
+
 ![nuevo bluetooth](Fotos_proyecto/Aplicacion.jpg)
 
 Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia HC-05 o con esa referencia fue que se compro.
