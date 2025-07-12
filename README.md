@@ -50,13 +50,27 @@ Con este guante se presentaron los siguientes problemas:
 
 Se inicio la caracterizacion de los sensores a traves de divisores de voltaje y circuitos integrados en forma de comparadores(LM324 y LM358)
 
-![Gráfica de resultados](Fotos_proyecto/primer_montaje.jpg)
-![Imagen de cierre](Fotos_proyecto/cal_3.3.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/primer_montaje.jpg" alt="primer_montaje" width="400"/>
+  <br>
+  <em>Figura 4. Montaje en protoboard.</em>
+</p>
+
+
+<p align="center">
+  <img src="Fotos_proyecto/cal_3.3.jpg" alt="Calculos_33v" width="400"/>
+  <br>
+  <em>Figura 5. Calculos con 3.3v.</em>
+</p>
+
+
 Este circuito se alimento con 3.3V sacados directamente de la Raspberry pi pico W, se establece un umbral de 2.2V para comparar con respecto a los 3.3V de la alimentacion.
 Con este montaje se presentaron estos problemas:
 
 - A la salida del comparador nos entregaba un voltaje de 2V o menor a 2V esto provocaba que las entradas GPIO de nuestro MCU no detectara correctamente la entrada como un alto o un bajo(se podia confundir por ruido).
 - Al implementar el trimmer para el umbral, este a veces no era muy exacto lo cual generaba errores en la comparacion.
+
 
 ## Resistencias de los sensores flex
 
