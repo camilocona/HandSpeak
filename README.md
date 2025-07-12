@@ -58,6 +58,72 @@ Con este montaje se presentaron estos problemas:
 - A la salida del comparador nos entregaba un voltaje de 2V o menor a 2V esto provocaba que las entradas GPIO de nuestro MCU no detectara correctamente la entrada como un alto o un bajo(se podia confundir por ruido).
 - Al implementar el trimmer para el umbral, este a veces no era muy exacto lo cual generaba errores en la comparacion.
 
+## Resistencias de los sensores flex
+
+### Pulgar
+
+- **Extendido:** 33 kΩ  
+- **Flexionado:** 37.5 kΩ
+
+Se seleccionó una resistencia media para el divisor de voltaje:
+
+$$
+R_1 = 35\,k\Omega
+$$
+
+Para calcular \( R_2 \), se utilizó la fórmula del divisor de voltaje:
+
+$$
+R_2 = \frac{V_\text{out} \cdot R_1}{V_\text{in} - V_\text{out}}
+$$
+
+Sustituyendo los valores:
+
+$$
+R_2 = \frac{2.2 \cdot 35\,k\Omega}{3.3 - 2.2}
+= \frac{77\,k\Omega}{1.1} = 70\,k\Omega
+$$
+
+**Resultado:**
+
+$$
+\boxed{R_2 = 70\,k\Omega}
+$$
+
+---
+
+Del mismo modo, se calcularon los valores para los demás dedos, obteniendo:
+
+### Índice
+$$
+\boxed{R_2 = 103\,k\Omega}
+$$
+
+### Corazón
+$$
+\boxed{R_2 = 128\,k\Omega}
+$$
+
+### Anular
+$$
+\boxed{R_2 = 71.4\,k\Omega}
+$$
+
+### Meñique
+$$
+\boxed{R_2 = 91.2\,k\Omega}
+$$
+
+### Divisor de voltaje para el comparador (umbral de 3.3 V)
+$$
+\boxed{R_2 = 99\,k\Omega}
+$$
+
+### Divisor de voltaje para la entrada GPIO (máximo 3.3 V)
+$$
+\boxed{R_2 = 22\,k\Omega}
+$$
+
 ---
 #### UPDATES
 ---
