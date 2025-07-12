@@ -206,7 +206,7 @@ Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia 
 Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
 
 
-  <p align="center">
+<p align="center">
   <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
   <br>
   <em>Figura 14. Error_bluetooth.</em>
@@ -215,7 +215,12 @@ Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se
 - La aplicacion no establecia una comunicacion con el modulo bluetooth. Entregaba un error de socket, lo que quiere decir que no se establecia una comunicacion entre el celular y el modulo bluetooth.
  
 Para poder saber cual era el problema fue necesario descargar la aplicacion llamada Serial Bluetooth Terminal que se encuentra en la Play Store de google. Esto con el fin de descartar si el modulo que se instalo si estaba transmitiendo los datos que se querian enviar a la aplicacion movil o si era la aplicacion movil la que tenia el error.
- ![SBT](Fotos_proyecto/Serial_Bluetooth_Terminal.jpg)
+
+ <p align="center">
+  <img src="Fotos_proyecto/Serial_Bluetooth_Terminal.jpg" alt="SBT" width="400"/>
+  <br>
+  <em>Figura 15. Aplicacion Serial Bluetooth Terminal (SBT).</em>
+</p>
 
 CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
  Esta aplicacion permite conectar y mostrar lo que se esta enviando desde la raspberry pi pico en este caso o enviar informacion a traves de lpierto serial de ela aplicacion por medio de un modulo bluetooth.
