@@ -64,6 +64,36 @@ Con este montaje se presentaron estos problemas:
 - Se agrego la IMU(GY91) al guante para iniciar las pruebas con movimiento, obteniendo buenos resultados con esta referencia de IMU.
 ![nuevo pcb](Fotos_proyecto/PCB.jpg)
 
-El siguiente paso fue la implementacion del bluetooth como dispositivo de comunicación y de la creacion de la aplicación para mostrar las letras en lenguaje de señas a traves del celular.
+El siguiente paso fue la implementacion del bluetooth como dispositivo de comunicación y de la creacion de una aplicación movil para mostrar las letras en lenguaje de señas a traves del celular.
 ![nuevo bluetooth](Fotos_proyecto/Circuito_completo.jpg)
+![nuevo bluetooth](Fotos_proyecto/Aplicacion.jpg)
 
+Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia HC-05 o con esa referencia fue que se compro.
+![bluetooth_HC-08](Fotos_proyecto/Bluetooth_HC-08.jpg)
+
+Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
+
+  ![bluetooth_HC-08](Fotos_proyecto/Error_bluetooth.jpg)
+- La aplicacion no establecia una comunicacion con el modulo bluetooth. Entregaba un error de socket, lo que quiere decir que no se establecia una comunicacion entre el celular y el modulo bluetooth.
+ 
+Para poder saber cual era el problema fue necesario descargar la aplicacion llamada Serial Bluetooth Terminal que se encuentra en la Play Store de google. Esto con el fin de descartar si el modulo que se instalo si estaba transmitiendo los datos que se querian enviar a la aplicacion movil o si era la aplicacion movil la que tenia el error.
+ ![SBT](Fotos_proyecto/Serial_Bluetooth_Terminal.jpg)
+
+CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
+ Esta aplicacion permite conectar y mostrar lo que se esta enviando desde la raspberry pi pico en este caso o enviar informacion a traves de lpierto serial de ela aplicacion por medio de un modulo bluetooth.
+ La aplicacion tiene la caracteristica de dejar conectar tanto modulos BLE y Modulos de bluetooth clasicos.
+ ![SBT](Fotos_proyecto/SBT_bluetooth_classic.jpg)
+ ![SBT](Fotos_proyecto/SBT_bluetooth_LE.jpg)
+
+-Ahora sabiendo un poco mas de la aplicacion se procede a verificar que si conectara el bluetooth y se enviara la informacion desde la rasberry pi pico a la aplicacion. 
+![SBT](Fotos_proyecto/SBT_Comunicacion.jpg)
+
+Al realizar esta prueba se pudo constatar que el modulo bluetooth si estaba transmitiendo lo datos, yu el codigo de las rapberry si estaba realizando bien su trabajo. Ya con lo anterior descartado se verifica bien si el porblema lo tenia la aplicacion movil, en esta parte encontramos  que la aplicacion no tenia errores para la configuracion de un modulo de bluetooth HC-05, el cual es un bluetooth clasico segun su hoja de datos. Revisando y analizando bien en la aplicacion Serial Bluetooth Terminal (SBT). se pudo observar que el modulo bluetooth que se compro no era la referencia HC-05, ya que en la aplicacion SBT nos mostraba que se enlazaba como un bluetooth de bajo consumo (Bluetooth Low Energy BLE). 
+
+Al saber lo anterior y teniendo en cuenta que la aplicacion movil que se diseño con los permisos y protocolos para un bluetooth clasico no era posible que se estableciera una conecxion entre el bluetooth y la aplicacion, por esto se generaba el error.
+
+Para  solucionar este problema se cambio el modulo por un modulo que verdaderamente fuera el HC-05, logrando asi que la aplicación se enlazara con la raspberry pi pico.
+![BLuetooth_HC-05](Fotos_proyecto/Bluetooth_HC-05.jpg)
+
+Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
+![BLuetooth_HC-05](Fotos_proyecto/Aplicacion_funcionando.jpg)
