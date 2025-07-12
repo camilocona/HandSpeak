@@ -55,7 +55,7 @@ Se inició la caracterizacion de los sensores a traves de divisores de voltaje y
   <em>Figura 4. Primer montaje realizado.</em>
 </p>
 <p align="center">
-  <img src="Fotos_proyecto/cal_3.3v.jpg" alt="sensore_flex" width="400"/>
+  <img src="Fotos_proyecto/cal_3.3.jpg" alt="sensore_flex" width="400"/>
   <br>
   <em>Figura 5. Primeros cálculos ralizados.</em>
 </p>
