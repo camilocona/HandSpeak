@@ -48,31 +48,25 @@ Con este guante se presentaron los siguientes problemas:
 - A la hora de ponerse el guante era muy ancho para las manos de cualquiera de nosotros.
 ---
 
-Se inicio la caracterizacion de los sensores a traves de divisores de voltaje y circuitos integrados en forma de comparadores(LM324 y LM358)
-
-
+Se inició la caracterizacion de los sensores a traves de divisores de voltaje y circuitos integrados en forma de comparadores(LM324 y LM358)
 <p align="center">
-  <img src="Fotos_proyecto/primer_montaje.jpg" alt="primer_montaje" width="400"/>
+  <img src="Fotos_proyecto/primer_montaje.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 4. Montaje en protoboard.</em>
+  <em>Figura 4. Primer montaje realizado.</em>
+</p>
+<p align="center">
+  <img src="Fotos_proyecto/cal_3.3v.jpg" alt="sensore_flex" width="400"/>
+  <br>
+  <em>Figura 5. Primeros cálculos ralizados.</em>
 </p>
 
+Este circuito fue alimentado con un voltaje de 3.3 V proveniente directamente de la Raspberry Pi Pico W. Se estableció un umbral de referencia de 2.2 V para realizar la comparación con respecto a los 3.3 V de la alimentación.
 
-<p align="center">
-  <img src="Fotos_proyecto/cal_3.3.jpg" alt="Calculos_33v" width="400"/>
-  <br>
-  <em>Figura 5. Calculos con 3.3v.</em>
-</p>
+Durante la implementación de este montaje se presentaron los siguientes inconvenientes:
+- La salida del comparador entregaba un voltaje igual o inferior a 2 V, lo que provocaba que las entradas GPIO del microcontrolador no reconocieran correctamente los niveles lógicos. Esto generaba ambigüedad en la detección del estado alto o bajo, especialmente en presencia de ruido eléctrico.
+- Al utilizar un trimmer para ajustar el umbral de comparación, se observó una falta de precisión en ciertos casos, lo cual derivaba en errores en el proceso de comparación.
 
-
-Este circuito se alimento con 3.3V sacados directamente de la Raspberry pi pico W, se establece un umbral de 2.2V para comparar con respecto a los 3.3V de la alimentacion.
-Con este montaje se presentaron estos problemas:
-
-- A la salida del comparador nos entregaba un voltaje de 2V o menor a 2V esto provocaba que las entradas GPIO de nuestro MCU no detectara correctamente la entrada como un alto o un bajo(se podia confundir por ruido).
-- Al implementar el trimmer para el umbral, este a veces no era muy exacto lo cual generaba errores en la comparacion.
-
-
-## Resistencias de los sensores flex
+## Resistencias de los sensores flex (Cálculos finales)
 
 ### Pulgar
 
