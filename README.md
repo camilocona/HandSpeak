@@ -225,8 +225,19 @@ Para poder saber cual era el problema fue necesario descargar la aplicacion llam
 CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
  Esta aplicacion permite conectar y mostrar lo que se esta enviando desde la raspberry pi pico en este caso o enviar informacion a traves de lpierto serial de ela aplicacion por medio de un modulo bluetooth.
  La aplicacion tiene la caracteristica de dejar conectar tanto modulos BLE y Modulos de bluetooth clasicos.
- ![SBT](Fotos_proyecto/SBT_bluetooth_classic.jpg)
- ![SBT](Fotos_proyecto/SBT_bluetooth_LE.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/SBT_bluetooth_classic.jpg" alt="SBT_Classic" width="400"/>
+  <br>
+  <em>Figura 16. Reconocimiento de dispositivos bluetooth classic.</em>
+</p>
+ 
+
+<p align="center">
+  <img src="Fotos_proyecto/SBT_bluetooth_LE.jpg" alt="SBT_BLE" width="400"/>
+  <br>
+  <em>Figura 17. Reconocimiento de dispositivos bluetooth LE.</em>
+</p>
 
 -Ahora sabiendo un poco mas de la aplicacion se procede a verificar que si conectara el bluetooth y se enviara la informacion desde la rasberry pi pico a la aplicacion. 
 ![SBT](Fotos_proyecto/SBT_Comunicacion.jpg)
