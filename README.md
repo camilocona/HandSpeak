@@ -245,7 +245,7 @@ CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
 <p align="center">
   <img src="Fotos_proyecto/SBT_Comunicacion.jpg" alt="SBT_Comunicacion" width="400"/>
   <br>
-  <em>Figura 18 Comunicación entre raspberry pi pico y SBT.</em>
+  <em>Figura 18. Comunicación entre raspberry pi pico y SBT.</em>
 </p>
 
 
@@ -254,7 +254,13 @@ Al realizar esta prueba se pudo constatar que el modulo bluetooth si estaba tran
 Al saber lo anterior y teniendo en cuenta que la aplicacion movil que se diseño con los permisos y protocolos para un bluetooth clasico no era posible que se estableciera una conecxion entre el bluetooth y la aplicacion, por esto se generaba el error.
 
 Para  solucionar este problema se cambio el modulo por un modulo que verdaderamente fuera el HC-05, logrando asi que la aplicación se enlazara con la raspberry pi pico.
-![BLuetooth_HC-05](Fotos_proyecto/Bluetooth_HC-05.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/Bluetooth_HC-05.jpg" alt="Bluetooth_HC-05" width="400"/>
+  <br>
+  <em>Figura 19. Modulo bluetooth HC-05.</em>
+</p>
+
 
 Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
 ![BLuetooth_HC-05](Fotos_proyecto/Aplicacion_funcionando.jpg)
