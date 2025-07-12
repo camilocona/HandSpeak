@@ -159,10 +159,24 @@ $$
 </p>
 
 - Se realizo la actualizacion de un nuevo guanto mas ergonomico el cual nos permitio una mejor lectura de los sensores Flex
-![Imagen de cierre](Fotos_proyecto/Guante_2.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/Guante_2.jpg" alt="Guante_2" width="400"/>
+  <br>
+  <em>Figura 8. Guante version 2.0.</em>
+</p>
+
 
 - Se adacto el nuevo guante con el nuevo circuito de protoboard pero se encontro el problema de la protoboard, ya que esta trae las pistas muy anchas y las resistencias quedaban con mal contacto, generando valores erroneos en los divisores.
-![nuevo guante](Fotos_proyecto/Montaje_Circuito_Guante_Sin_IMU.jpg)
+
+
+<p align="center">
+  <img src="Fotos_proyecto/Montaje_Circuito_Guante_Sin_IMU.jpg" alt="Circuit_Sin_IMU" width="400"/>
+  <br>
+  <em>Figura 9. Montaje del circuito sin IMU 2.0.</em>
+</p>
+
+
 - Se opto como ultimo circuito un montaje en Baquela universal para evitar errores de contactos y de esta manera tener un circuito mas compacto.
 - Se agrego la IMU(GY91) al guante para iniciar las pruebas con movimiento, obteniendo buenos resultados con esta referencia de IMU.
 ![nuevo pcb](Fotos_proyecto/PCB.jpg)
