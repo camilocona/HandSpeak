@@ -15,29 +15,32 @@ Por ejemplo, el primer sensor presentaba una resistencia de 33 kΩ cuando esta
 
 La salida del divisor de voltaje fue conectada a un comparador implementado con amplificadores operacionales. Se utilizaron un LM324 (con cuatro amplificadores) y un LM358 (utilizando uno de sus dos amplificadores), lo que permitió procesar las señales de los cinco sensores. Cada comparador recibió también una tensión de referencia de 3.3 V, generada mediante otro divisor de voltaje, ya que la alimentación general del sistema era de 5 V. De este modo, cuando el sensor flex estaba estirado, la tensión de salida del divisor era mayor que 3.3 V, provocando que el comparador generara una salida de aproximadamente el 70 % de la tensión de alimentación (≈3.6 V). En cambio, cuando el dedo se doblaba, la resistencia del sensor aumentaba, reduciendo la tensión en el divisor y provocando que el comparador entregara una salida cercana a 0 V (nivel bajo o tierra).
 
-Inicialmente, se intentó conectar directamente las salidas de los comparadores a los pines GPIO de la Raspberry Pi Pico (RP2040); sin embargo, esto ocasionaba lecturas erróneas de las letras detectadas por el guante. Tras revisar la documentación técnica de la RP2040, se identificó que el voltaje máximo admitido en sus entradas GPIO es de 3.3 V. Por lo tanto, fue necesario incorporar un segundo divisor de voltaje en cada línea de salida antes de ingresar a la RP2040, asegurando así la integridad de las señales digitales y el correcto funcionamiento del sistema de lectura.
+Inicialmente, se intentó conectar directamente las salidas de los comparadores a los pines GPIO de la Raspberry Pi Pico (RP2040); sin embargo, esto ocasionaba lecturas erróneas de las letras detectadas por el guante. Tras revisar la documentación técnica de la RP2040, se identificó que el voltaje máximo admitido en sus entradas GPIO es de 3.3 V. Por lo tanto, fue necesario incorporar un segundo divisor de voltaje en cada línea de salida antes de ingresar a la RP2040, asegurando así la integridad de las señales digitales y el correcto funcionamiento del sistema de lectura. A contnuación se presentan fotografías evidenciando el proceso descrito.
 
 
-Se comenzo con la verificacion de los sensores flex y su debido funcionamiento.
+Se comenzó con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
   <img src="Fotos_proyecto/medicion_sensores.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 1. Verificación de sensores flex</em>
+  <em>Figura 1. Verificación de sensores flex.</em>
 </p>
 
----
 
-Se realizo la proteccion de los sensores flex para evitar daños en estos a la hora de acoplarlos en el guante.
+Se realizó la proteccion de los sensores flex para evitar daños en estos a la hora de acoplarlos en el guante.
+<p align="center">
+  <img src="Fotos_proyecto/protector_sensores.jpg" alt="sensore_flex" width="400"/>
+  <br>
+  <em>Figura 2. Protección de los sensores con termoencogible.</em>
+</p>
 
 
-![sensores](Fotos_proyecto/protector_sensores.jpg)
-
----
-
-se inicio con la creacion del guante, comenzado con el debido aclope de los sensores flex a un guante.
-
-![Descripción visual del tema](Fotos_proyecto/creación_guante.jpg)
+Se inició con la creacion del guante, comenzado con el debido aclope de los sensores flex a un guante.
+<p align="center">
+  <img src="Fotos_proyecto/creación_guante.jpg" alt="sensore_flex" width="400"/>
+  <br>
+  <em>Figura 3. Protección de los sensores con termoencogible.</em>
+</p>
 
 Con este guante se presentaron los siguientes problemas:
 - Guante demasiado rigido
