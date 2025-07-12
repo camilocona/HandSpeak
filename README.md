@@ -1,10 +1,12 @@
 # HandSpeak
 ## Introducción
+
 Actualmente, la inclusión y la accesibilidad son pilares fundamentales en el desarrollo de tecnologías que buscan mejorar la calidad de vida de las personas. Uno de los retos más significativos en este ámbito es la comunicación con personas con discapacidad auditiva que utilizan el lenguaje de señas como principal medio de expresión. El proyecto HandSpeak surge como una solución tecnológica que busca facilitar la interpretación de señas en tiempo real, permitiendo una comunicación más fluida e inclusiva entre personas sordas y oyentes.
 
 HandSpeak consiste en el diseño e implementación de un guante inteligente capaz de reconocer letras del alfabeto en lengua de señas mediante sensores flex en los dedos y un módulo inercial (IMU) que detecta los movimientos de la mano. La información capturada es procesada por una Raspberry Pi Pico y transmitida vía Bluetooth a una aplicación móvil que interpreta y reproduce la letra detectada, ya sea de forma visual o mediante voz sintetizada.
 
 Este sistema busca no solo mejorar la interacción cotidiana de las personas sordas, sino también aportar a la educación, la accesibilidad digital y la construcción de entornos más inclusivos. El desarrollo de HandSpeak integra conocimientos en electrónica, programación embebida, comunicación inalámbrica y procesamiento de señales, consolidándose como una herramienta de apoyo en la eliminación de barreras comunicativas.
+
 ---
 
 Se comenzo con la verificacion de los sensores flex y su debido funcionamiento.
