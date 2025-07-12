@@ -205,7 +205,13 @@ Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia 
 
 Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
 
-  ![bluetooth_HC-08](Fotos_proyecto/Error_bluetooth.jpg)
+
+  <p align="center">
+  <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
+  <br>
+  <em>Figura 14. Error_bluetooth.</em>
+</p>
+
 - La aplicacion no establecia una comunicacion con el modulo bluetooth. Entregaba un error de socket, lo que quiere decir que no se establecia una comunicacion entre el celular y el modulo bluetooth.
  
 Para poder saber cual era el problema fue necesario descargar la aplicacion llamada Serial Bluetooth Terminal que se encuentra en la Play Store de google. Esto con el fin de descartar si el modulo que se instalo si estaba transmitiendo los datos que se querian enviar a la aplicacion movil o si era la aplicacion movil la que tenia el error.
