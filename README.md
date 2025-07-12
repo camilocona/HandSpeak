@@ -12,7 +12,7 @@ Este sistema busca no solo mejorar la interacción cotidiana de las personas sor
 Se comenzo con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
-  <img src="Fotos_proyecto/medición_sensores.jpg" alt="sensore_flex" width="400"/>
+  <img src="Fotos_proyecto/medicion_sensores.jpg" alt="sensore_flex" width="400"/>
 </p>
 ---
 
