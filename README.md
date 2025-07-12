@@ -144,8 +144,19 @@ $$
 
 - Para corregir los anteriores problemas se opto por dejar el divisor de voltaje del umbral de comparacion fijo(sin trimmer) en 3.3V.
 - Se cambio la alimentacion del circuito a 5V,haciendo una recalibracion de los divisores de voltaje de cada sensores flex.
-![Imagen de cierre](Fotos_proyecto/proto_5V.jpg)
-![Imagen de cierre](Fotos_proyecto/cal_5V.jpg)
+
+<p align="center">
+  <img src="Fotos_proyecto/proto_5V.jpg" alt="Calculos_5v" width="400"/>
+  <br>
+  <em>Figura 6. Calculos con 3.3v.</em>
+</p>
+
+
+<p align="center">
+  <img src="Fotos_proyecto/cal_5V.jpg" alt="cal_5V" width="400"/>
+  <br>
+  <em>Figura 7. Calculos con 5v.</em>
+</p>
 
 - Se realizo la actualizacion de un nuevo guanto mas ergonomico el cual nos permitio una mejor lectura de los sensores Flex
 ![Imagen de cierre](Fotos_proyecto/Guante_2.jpg)
