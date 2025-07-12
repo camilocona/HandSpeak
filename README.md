@@ -240,7 +240,14 @@ CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
 </p>
 
 -Ahora sabiendo un poco mas de la aplicacion se procede a verificar que si conectara el bluetooth y se enviara la informacion desde la rasberry pi pico a la aplicacion. 
-![SBT](Fotos_proyecto/SBT_Comunicacion.jpg)
+
+
+<p align="center">
+  <img src="Fotos_proyecto/SBT_Comunicacion.jpg" alt="SBT_Comunicacion" width="400"/>
+  <br>
+  <em>Figura 18 Comunicación entre raspberry pi pico y SBT.</em>
+</p>
+
 
 Al realizar esta prueba se pudo constatar que el modulo bluetooth si estaba transmitiendo lo datos, yu el codigo de las rapberry si estaba realizando bien su trabajo. Ya con lo anterior descartado se verifica bien si el porblema lo tenia la aplicacion movil, en esta parte encontramos  que la aplicacion no tenia errores para la configuracion de un modulo de bluetooth HC-05, el cual es un bluetooth clasico segun su hoja de datos. Revisando y analizando bien en la aplicacion Serial Bluetooth Terminal (SBT). se pudo observar que el modulo bluetooth que se compro no era la referencia HC-05, ya que en la aplicacion SBT nos mostraba que se enlazaba como un bluetooth de bajo consumo (Bluetooth Low Energy BLE). 
 
