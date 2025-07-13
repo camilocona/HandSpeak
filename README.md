@@ -303,3 +303,17 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
   <em>Figura 21. Diagrama de flujo del proyecto.</em>
 </p>
 
+## Requisitos Funcionales
+<p align="center">
+  <img src="Fotos_proyecto/requisitosfuncionales.png" alt="Aplicacion_funcionando" width="400"/>
+  <br>
+    <em>Figura 22. Requisitos funcionales del sistema.</em>
+</p>
+
+## Requisitos NO Funcionales
+<p align="center">
+  <img src="Fotos_proyecto/requisitosNOfuncionales.png" alt="Aplicacion_funcionando" width="400"/>
+  <br>
+    <em>Figura 23. Requisitos NO funcionales del sistema.</em>
+</p>
+
