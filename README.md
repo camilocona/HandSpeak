@@ -147,8 +147,7 @@ $$
 $$
 
 ---
-#### Mejoras en el diseño físico
----
+## Mejoras en el diseño físico
 
 - Se realizó la actualización a un nuevo guante con un diseño más ergonómico, lo cual permitió una mejor sujeción de los sensores flex y, en consecuencia, una lectura más precisa y estable de sus valores de resistencia.
 
