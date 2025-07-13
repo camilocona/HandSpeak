@@ -275,4 +275,17 @@ Para solucionar el problema, se reemplazó el módulo por uno que realmente corr
 
 Gracias a la solución implementada respecto al módulo Bluetooth, se logró establecer una comunicación estable entre la Raspberry Pi Pico y la aplicación móvil. Como resultado, fue posible mostrar correctamente todas las letras del abecedario en lenguaje de señas a través de la interfaz de la aplicación, permitiendo una interpretación fluida y precisa de los gestos realizados con el guante.
 
+# Diagrama de Bloques
+
+Los sensores flex se conectaron a los pines GPIO de la Raspberry Pi Pico a través de los divisores de voltaje previamente descritos. Esta etapa de acondicionamiento de señal permitió convertir las variaciones de resistencia generadas por la flexión de los dedos en niveles lógicos compatibles (3.3 V), facilitando así la detección binaria del estado de cada dedo (flexionado o extendido).
+
+Adicionalmente, se integró al sistema una unidad inercial GY-91, que incorpora un acelerómetro y giroscopio MPU9250. Para la lectura de datos provenientes de esta IMU, se implementó una estrategia combinada de polling + interrupciones.
+
+La comunicación entre la IMU y la Raspberry Pi Pico se estableció mediante el protocolo I²C, utilizando los pines GPIO 26 (SDA) y GPIO 27 (SCL). Por su parte, el módulo Bluetooth HC-05 fue conectado mediante el protocolo UART, usando los pines GPIO 16 (TX) y GPIO 17 (RX), lo que permitió transmitir de manera inalámbrica las letras detectadas hacia un dispositivo móvil Android que ejecutaba la aplicación desarrollada para el proyecto.
+
+<p align="center">
+  <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="400"/>
+  <br>
+  <em>Figura 20. Diagrama de bloques del proyecto.</em>
+</p>
 
