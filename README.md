@@ -75,9 +75,9 @@ Durante la implementación de este montaje se presentaron los siguientes inconve
 
 ---
 
--Para corregir los problemas mencionados previamente, se optó por fijar el divisor de voltaje correspondiente al umbral de comparación en 3.3 V, eliminando el uso del trimmer para evitar errores de ajuste.
+- Para corregir los problemas mencionados previamente, se optó por fijar el divisor de voltaje correspondiente al umbral de comparación en 3.3 V, eliminando el uso del trimmer para evitar errores de ajuste.
 
--Además, se cambió la alimentación del circuito a 5 V, lo que requirió una recalibración de los divisores de voltaje asociados a cada sensor flex, a fin de garantizar lecturas correctas y compatibles con el nuevo nivel de referencia.
+- Además, se cambió la alimentación del circuito a 5 V, lo que requirió una recalibración de los divisores de voltaje asociados a cada sensor flex, a fin de garantizar lecturas correctas y compatibles con el nuevo nivel de referencia.
 
 
 
