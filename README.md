@@ -320,7 +320,7 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
 ## Valor de materiales
 
 | **Descripción**                       | **Cantidad** | **Precio por unidad** | **Total**     |
-|--------------------------------------|--------------|------------------------|---------------|
+|:------------------------------------:|:------------:|:---------------------:|:-------------:|
 | Sensor flex                          | 5            | $36.000                | $180.000      |
 | Guante                               | 1            | $9.300                 | $9.300        |
 | Cinta aislante                       | 1            | $5.000                 | $5.000        |
@@ -341,3 +341,4 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
 | Cable plano Ribon 20 hilos           | 1            | $6.500                 | $6.500        |
 
 **Total: $322.600**
+
