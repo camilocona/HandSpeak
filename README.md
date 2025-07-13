@@ -55,16 +55,17 @@ Con este guante se presentaron los siguientes problemas:
 - A la hora de ponerse el guante era muy ancho para las manos de cualquiera de nosotros.
 ---
 
-Se inició la caracterizacion de los sensores a traves de divisores de voltaje y circuitos integrados en forma de comparadores(LM324 y LM358)
+Para interpretar correctamente las variaciones de resistencia en los sensores flex instalados en los dedos del guante, se implementó una etapa de caracterización basada en comparadores de voltaje utilizando amplificadores operacionales LM324 y LM358.
 <p align="center">
   <img src="Fotos_proyecto/primer_montaje.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 5. Primer montaje realizado.</em>
+  <em>Figura 5. Caracterización de los sensores mediante amplificadores operacionales comparadores (LM324 y LM358).</em>
 </p>
 <p align="center">
+Inicialmente se realizaron los siguientes cálculos:
   <img src="Fotos_proyecto/cal_3.3.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 6. Primeros cálculos ralizados.</em>
+  <em>Figura 6. Primeros cálculos realizados.</em>
 </p>
 
 Este circuito fue alimentado con un voltaje de 3.3 V proveniente directamente de la Raspberry Pi Pico W. Se estableció un umbral de referencia de 2.2 V para realizar la comparación con respecto a los 3.3 V de la alimentación.
