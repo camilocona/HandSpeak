@@ -199,7 +199,7 @@ Inicialmente se utilizó un módulo Bluetooth adquirido bajo la referencia HC-05
 
 
 <p align="center">
-  <img src="Fotos_proyecto/Bluetooth_HC-08.jpg" alt="Bluetooth_HC-08" width="400"/>
+  <img src="Fotos_proyecto/moduloHC08.jpg" alt="Bluetooth_HC-08" width="400"/>
   <br>
   <em>Figura 12. Módulo Bluetooth adquirido como HC-05, pero con comportamiento inconsistente respecto a dicha referencia.</em>
 </p>
