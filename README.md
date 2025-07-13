@@ -317,7 +317,7 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
     <em>Figura 23. Requisitos NO funcionales del sistema.</em>
 </p>
 
-## Valor de materiales
+## Análisis de costo del sistema prototipo y producción en masa
 
 | **Descripción**                       | **Cantidad** | **Precio por unidad** | **Total**     |
 |:------------------------------------:|:------------:|:---------------------:|:-------------:|
@@ -341,4 +341,22 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
 | Cable plano Ribon 20 hilos           | 1            | $6.500                 | $6.500        |
 
 **Total: $322.600**
+
+El desarrollo del prototipo del sistema HandSpeak implicó una inversión total aproximada de $322.600, distribuidos principalmente en sensores flex, la Raspberry Pi Pico W, la IMU GY-91, el módulo Bluetooth HC-05 y los componentes de acondicionamiento de señal (resistencias, divisores de voltaje, amplificadores operacionales, etc.).
+
+Este diseño se basó en la Raspberry Pi Pico W, un microcontrolador versátil pero limitado en el número de entradas analógicas disponibles. Debido a que los sensores flex entregan una señal resistiva (analógica), fue necesario implementar un conjunto de divisores de voltaje combinados con comparadores (LM324 y LM358) para convertir la señal a digital, lo que aumentó la complejidad del circuito, el consumo de espacio y el costo del ensamblaje.
+
+### Recomendaciones para producción en masa
+Para una futura versión orientada a producción a gran escala, se recomienda rediseñar el sistema con los siguientes cambios:
+
+-Cambio de microcontrolador:
+Utilizar un microcontrolador que disponga de al menos 5 entradas ADC (convertidores analógico-digital), lo cual permitiría leer directamente las señales de los sensores flex sin necesidad de comparadores ni divisores de voltaje complejos, reduciendo significativamente el número de componentes, el consumo de energía y el tamaño del PCB.
+
+-Reducción de componentes discretos:
+Al eliminar los comparadores y resistencias adicionales, se simplifica el diseño del circuito, se mejora la confiabilidad y se facilita la fabricación automatizada.
+
+-Integración del sistema en una PCB personalizada:
+Diseñar un circuito impreso a medida para el guante permitiría reducir costos por unidad, mejorar la ergonomía del sistema y facilitar su ensamblaje industrial.
+
+
 
