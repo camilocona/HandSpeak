@@ -61,8 +61,9 @@ Para interpretar correctamente las variaciones de resistencia en los sensores fl
   <br>
   <em>Figura 5. Caracterización de los sensores mediante amplificadores operacionales comparadores (LM324 y LM358).</em>
 </p>
-<p align="center">
+
 Inicialmente se realizaron los siguientes cálculos:
+<p align="center">
   <img src="Fotos_proyecto/cal_3.3.jpg" alt="sensore_flex" width="400"/>
   <br>
   <em>Figura 6. Primeros cálculos realizados.</em>
