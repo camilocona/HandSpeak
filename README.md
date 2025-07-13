@@ -24,7 +24,7 @@ Inicialmente, se intentó conectar directamente las salidas de los comparadores 
 </p>
 
 ---
-
+## Procedimiento de montaje del guante
 Se comenzó con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
