@@ -75,21 +75,12 @@ Durante la implementación de este montaje se presentaron los siguientes inconve
 
 ---
 
+
+## Resistencias de los sensores flex (Cálculos finales para 5V)
 - Para corregir los problemas mencionados previamente, se optó por fijar el divisor de voltaje correspondiente al umbral de comparación en 3.3 V, eliminando el uso del trimmer para evitar errores de ajuste.
 
 - Además, se cambió la alimentación del circuito a 5 V, lo que requirió una recalibración de los divisores de voltaje asociados a cada sensor flex, a fin de garantizar lecturas correctas y compatibles con el nuevo nivel de referencia.
-
-
-
-<p align="center">
-  <img src="Fotos_proyecto/cal_5V.jpg" alt="cal_5V" width="400"/>
-  <br>
-  <em>Figura 8. Calculos con 5v.</em>
-</p>
-
-## Resistencias de los sensores flex (Cálculos finales)
-
-### Pulgar
+### Pulgar (Se realizó esto de igual forma para cada uno de los demás dedos)
 
 - **Extendido:** 33 kΩ  
 - **Flexionado:** 37.5 kΩ
