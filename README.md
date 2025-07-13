@@ -22,7 +22,9 @@ Inicialmente, se intentó conectar directamente las salidas de los comparadores 
   <br>
   <em>Figura 1. Esquema del sistema de comparación de voltaje utilizando un amplificador operacional LM324. El voltaje de entrada varía según la resistencia del sensor flex (dependiente de la posición del dedo) y se compara con una referencia de 3.3 V. La salida del comparador pasa por un divisor de voltaje adicional para adecuarse al nivel máximo permitido por las entradas GPIO de la Raspberry Pi Pico (3.3 V).</em>
 </p>
+
 ---
+
 Se comenzó con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
