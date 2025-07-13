@@ -210,7 +210,7 @@ Con la implementación de este módulo Bluetooth y la creación de la aplicació
 <p align="center">
   <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
   <br>
-  <em>Figura 15. Error bluetooth.</em>
+  <em>Figura 15. Error al conectar la aplicación creada por Bluetooth.</em>
 </p>
 
 - La aplicación móvil no lograba establecer comunicación con el módulo Bluetooth, presentando un error de socket, lo que indicaba que no se estaba concretando una conexión efectiva entre el dispositivo móvil y el módulo.
@@ -224,47 +224,48 @@ Para diagnosticar el origen del problema, fue necesario utilizar la aplicación 
 </p>
 
 CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
- Esta aplicacion permite conectar y mostrar lo que se esta enviando desde la raspberry pi pico en este caso o enviar informacion a traves de lpierto serial de ela aplicacion por medio de un modulo bluetooth.
- La aplicacion tiene la caracteristica de dejar conectar tanto modulos BLE y Modulos de bluetooth clasicos.
+La aplicación Serial Bluetooth Terminal fue utilizada como herramienta de diagnóstico para verificar la comunicación entre la Raspberry Pi Pico y el dispositivo móvil a través del módulo Bluetooth. Esta aplicación permite establecer una conexión mediante el puerto serial con módulos Bluetooth clásicos y BLE (Bluetooth Low Energy), ofreciendo así compatibilidad con una amplia gama de dispositivos.
+
+En este caso, permitió visualizar los datos enviados desde la Raspberry Pi Pico a través del módulo Bluetooth. Su uso fue importante para confirmar que el módulo estaba transmitiendo correctamente y descartar errores en la lógica de la aplicación móvil desarrollada para el proyecto.
 
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_classic.jpg" alt="SBT_Classic" width="400"/>
   <br>
-  <em>Figura 17. Reconocimiento de dispositivos bluetooth classic.</em>
+  <em>Figura 17. Reconocimiento de dispositivos Bluetooth Classic.</em>
 </p>
  
 
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_LE.jpg" alt="SBT_BLE" width="400"/>
   <br>
-  <em>Figura 18. Reconocimiento de dispositivos bluetooth LE.</em>
+  <em>Figura 18. Reconocimiento de dispositivos Bluetooth LE.</em>
 </p>
 
--Ahora sabiendo un poco mas de la aplicacion se procede a verificar que si conectara el bluetooth y se enviara la informacion desde la rasberry pi pico a la aplicacion. 
+-Ahora sabiendo un poco mas de la aplicacion se procedió a verificar que si conectara el Bluetooth y se enviara correctamente la informaciónn desde la Rasberry Pi Pico a la aplicación. 
+
 
 
 <p align="center">
   <img src="Fotos_proyecto/SBT_Comunicacion.jpg" alt="SBT_Comunicacion" width="400"/>
   <br>
-  <em>Figura 19. Comunicación entre raspberry pi pico y SBT.</em>
+  <em>Figura 19. Comunicación entre Raspberry Pi Pico y SBT.</em>
 </p>
 
 
-Al realizar esta prueba se pudo constatar que el modulo bluetooth si estaba transmitiendo lo datos, yu el codigo de las rapberry si estaba realizando bien su trabajo. Ya con lo anterior descartado se verifica bien si el porblema lo tenia la aplicacion movil, en esta parte encontramos  que la aplicacion no tenia errores para la configuracion de un modulo de bluetooth HC-05, el cual es un bluetooth clasico segun su hoja de datos. Revisando y analizando bien en la aplicacion Serial Bluetooth Terminal (SBT). se pudo observar que el modulo bluetooth que se compro no era la referencia HC-05, ya que en la aplicacion SBT nos mostraba que se enlazaba como un bluetooth de bajo consumo (Bluetooth Low Energy BLE). 
+Al realizar esta prueba con Serial Bluetooth Terminal, se pudo constatar que el módulo Bluetooth sí estaba transmitiendo correctamente los datos, y que el código ejecutado en la Raspberry Pi Pico funcionaba de forma adecuada. Con esto se descartaron fallas en el hardware y en la lógica de transmisión del microcontrolador.
 
-Al saber lo anterior y teniendo en cuenta que la aplicacion movil que se diseño con los permisos y protocolos para un bluetooth clasico no era posible que se estableciera una conecxion entre el bluetooth y la aplicacion, por esto se generaba el error.
+Posteriormente, se procedió a revisar si el problema residía en la aplicación móvil. Se comprobó que la aplicación desarrollada estaba configurada correctamente para comunicarse con un módulo Bluetooth clásico, específicamente con la referencia HC-05, según su hoja de datos. Sin embargo, al analizar más detenidamente la información mostrada por Serial Bluetooth Terminal, se identificó que el módulo adquirido no correspondía a la referencia HC-05, ya que aparecía como un dispositivo Bluetooth Low Energy (BLE) al momento de enlazarse.
 
-Para  solucionar este problema se cambio el modulo por un modulo que verdaderamente fuera el HC-05, logrando asi que la aplicación se enlazara con la raspberry pi pico.
+Al conocer esta diferencia, se comprendió que la aplicación móvil —diseñada para trabajar con Bluetooth clásico y con los permisos/protocolos correspondientes— no podía establecer una conexión con un módulo BLE, lo cual generaba el error de socket previamente observado.
+
+Para solucionar el problema, se reemplazó el módulo por uno que realmente correspondiera a la referencia HC-05. Una vez hecho este cambio, la aplicación pudo establecer correctamente la conexión con la Raspberry Pi Pico y recibir los datos transmitidos desde el guante.
 
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-05.jpg" alt="Bluetooth_HC-05" width="400"/>
   <br>
-  <em>Figura 20. Modulo bluetooth HC-05.</em>
+  <em>Figura 20. Módulo Bluetooth HC-05.</em>
 </p>
 
-
-Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
-![BLuetooth_HC-05](Fotos_proyecto/Aplicacion_funcionando.jpg)
 
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion_funcionando.jpg" alt="Aplicacion_funcionando" width="400"/>
@@ -272,4 +273,6 @@ Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
   <em>Figura 21. Aplicación en funcionamiento.</em>
 </p>
 
-Con la solucion al problema del bluetooth se logro mostrar todas las letras del abecedario en lenguaje de señas por mediod la aplicación.
+Gracias a la solución implementada respecto al módulo Bluetooth, se logró establecer una comunicación estable entre la Raspberry Pi Pico y la aplicación móvil. Como resultado, fue posible mostrar correctamente todas las letras del abecedario en lenguaje de señas a través de la interfaz de la aplicación, permitiendo una interpretación fluida y precisa de los gestos realizados con el guante.
+
+
