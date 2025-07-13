@@ -17,13 +17,18 @@ La salida del divisor de voltaje fue conectada a un comparador implementado con 
 
 Inicialmente, se intentó conectar directamente las salidas de los comparadores a los pines GPIO de la Raspberry Pi Pico (RP2040); sin embargo, esto ocasionaba lecturas erróneas de las letras detectadas por el guante. Tras revisar la documentación técnica de la RP2040, se identificó que el voltaje máximo admitido en sus entradas GPIO es de 3.3 V. Por lo tanto, fue necesario incorporar un segundo divisor de voltaje en cada línea de salida antes de ingresar a la RP2040, asegurando así la integridad de las señales digitales y el correcto funcionamiento del sistema de lectura. A contnuación se presentan fotografías evidenciando el proceso descrito.
 
+<p align="center">
+  <img src="Fotos_proyecto/circuito.png" alt="sensore_flex" width="400"/>
+  <br>
+  <em>Figura 1. Esquema del sistema de comparación de voltaje utilizando un amplificador operacional LM324. El voltaje de entrada varía según la resistencia del sensor flex (dependiente de la posición del dedo) y se compara con una referencia de 3.3 V. La salida del comparador pasa por un divisor de voltaje adicional para adecuarse al nivel máximo permitido por las entradas GPIO de la Raspberry Pi Pico (3.3 V).</em>
+</p>
 
 Se comenzó con la verificacion de los sensores flex y su debido funcionamiento.
 
 <p align="center">
   <img src="Fotos_proyecto/medicion_sensores.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 1. Verificación de sensores flex.</em>
+  <em>Figura 2. Verificación de sensores flex.</em>
 </p>
 
 
@@ -31,7 +36,7 @@ Se realizó la proteccion de los sensores flex para evitar daños en estos a la 
 <p align="center">
   <img src="Fotos_proyecto/protector_sensores.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 2. Protección de los sensores con termoencogible.</em>
+  <em>Figura 3. Protección de los sensores con termoencogible.</em>
 </p>
 
 
@@ -39,7 +44,7 @@ Se inició con la creacion del guante, comenzado con el debido aclope de los sen
 <p align="center">
   <img src="Fotos_proyecto/creación_guante.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 3. Protección de los sensores con termoencogible.</em>
+  <em>Figura 4. Protección de los sensores con termoencogible.</em>
 </p>
 
 Con este guante se presentaron los siguientes problemas:
@@ -52,12 +57,12 @@ Se inició la caracterizacion de los sensores a traves de divisores de voltaje y
 <p align="center">
   <img src="Fotos_proyecto/primer_montaje.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 4. Primer montaje realizado.</em>
+  <em>Figura 5. Primer montaje realizado.</em>
 </p>
 <p align="center">
   <img src="Fotos_proyecto/cal_3.3.jpg" alt="sensore_flex" width="400"/>
   <br>
-  <em>Figura 5. Primeros cálculos ralizados.</em>
+  <em>Figura 6. Primeros cálculos ralizados.</em>
 </p>
 
 Este circuito fue alimentado con un voltaje de 3.3 V proveniente directamente de la Raspberry Pi Pico W. Se estableció un umbral de referencia de 2.2 V para realizar la comparación con respecto a los 3.3 V de la alimentación.
@@ -142,14 +147,14 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/proto_5V.jpg" alt="Calculos_5v" width="400"/>
   <br>
-  <em>Figura 6. Calculos con 3.3v.</em>
+  <em>Figura 7. Calculos con 3.3v.</em>
 </p>
 
 
 <p align="center">
   <img src="Fotos_proyecto/cal_5V.jpg" alt="cal_5V" width="400"/>
   <br>
-  <em>Figura 7. Calculos con 5v.</em>
+  <em>Figura 8. Calculos con 5v.</em>
 </p>
 
 - Se realizo la actualizacion de un nuevo guanto mas ergonomico el cual nos permitio una mejor lectura de los sensores Flex
@@ -157,7 +162,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/Guante_2.jpg" alt="Guante_2" width="400"/>
   <br>
-  <em>Figura 8. Guante version 2.0.</em>
+  <em>Figura 9. Guante version 2.0.</em>
 </p>
 
 
@@ -167,7 +172,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/Montaje_Circuito_Guante_Sin_IMU.jpg" alt="Circuit_Sin_IMU" width="400"/>
   <br>
-  <em>Figura 9. Montaje del circuito sin IMU.</em>
+  <em>Figura 10. Montaje del circuito sin IMU.</em>
 </p>
 
 
@@ -177,7 +182,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/PCB.jpg" alt="PCB" width="400"/>
   <br>
-  <em>Figura 10. Montaje en baquela universal.</em>
+  <em>Figura 11. Montaje en baquela universal.</em>
 </p>
 
 El siguiente paso fue la implementacion del bluetooth como dispositivo de comunicación y de la creacion de una aplicación movil para mostrar las letras en lenguaje de señas a traves del celular.
@@ -185,13 +190,13 @@ El siguiente paso fue la implementacion del bluetooth como dispositivo de comuni
 <p align="center">
   <img src="Fotos_proyecto/Circuito_completo.jpg" alt="Circuito_completo" width="400"/>
   <br>
-  <em>Figura 11. Circuito con bluetooth.</em>
+  <em>Figura 12. Circuito con bluetooth.</em>
 </p>
 
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion.jpg" alt="Aplicacion" width="400"/>
   <br>
-  <em>Figura 12. Aplicación.</em>
+  <em>Figura 13. Aplicación.</em>
 </p>
 
 Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia HC-05 o con esa referencia fue que se compro.
@@ -200,7 +205,7 @@ Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia 
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-08.jpg" alt="Bluetooth_HC-08" width="400"/>
   <br>
-  <em>Figura 13. Bluetooth con la referencia mala.</em>
+  <em>Figura 14. Bluetooth con la referencia mala.</em>
 </p>
 
 Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
@@ -209,7 +214,7 @@ Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se
 <p align="center">
   <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
   <br>
-  <em>Figura 14. Error_bluetooth.</em>
+  <em>Figura 15. Error_bluetooth.</em>
 </p>
 
 - La aplicacion no establecia una comunicacion con el modulo bluetooth. Entregaba un error de socket, lo que quiere decir que no se establecia una comunicacion entre el celular y el modulo bluetooth.
@@ -219,7 +224,7 @@ Para poder saber cual era el problema fue necesario descargar la aplicacion llam
  <p align="center">
   <img src="Fotos_proyecto/Serial_Bluetooth_Terminal.jpg" alt="SBT" width="400"/>
   <br>
-  <em>Figura 15. Aplicacion Serial Bluetooth Terminal (SBT).</em>
+  <em>Figura 16. Aplicacion Serial Bluetooth Terminal (SBT).</em>
 </p>
 
 CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
@@ -229,14 +234,14 @@ CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_classic.jpg" alt="SBT_Classic" width="400"/>
   <br>
-  <em>Figura 16. Reconocimiento de dispositivos bluetooth classic.</em>
+  <em>Figura 17. Reconocimiento de dispositivos bluetooth classic.</em>
 </p>
  
 
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_LE.jpg" alt="SBT_BLE" width="400"/>
   <br>
-  <em>Figura 17. Reconocimiento de dispositivos bluetooth LE.</em>
+  <em>Figura 18. Reconocimiento de dispositivos bluetooth LE.</em>
 </p>
 
 -Ahora sabiendo un poco mas de la aplicacion se procede a verificar que si conectara el bluetooth y se enviara la informacion desde la rasberry pi pico a la aplicacion. 
@@ -245,7 +250,7 @@ CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
 <p align="center">
   <img src="Fotos_proyecto/SBT_Comunicacion.jpg" alt="SBT_Comunicacion" width="400"/>
   <br>
-  <em>Figura 18. Comunicación entre raspberry pi pico y SBT.</em>
+  <em>Figura 19. Comunicación entre raspberry pi pico y SBT.</em>
 </p>
 
 
@@ -258,7 +263,7 @@ Para  solucionar este problema se cambio el modulo por un modulo que verdaderame
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-05.jpg" alt="Bluetooth_HC-05" width="400"/>
   <br>
-  <em>Figura 19. Modulo bluetooth HC-05.</em>
+  <em>Figura 20. Modulo bluetooth HC-05.</em>
 </p>
 
 
@@ -268,7 +273,7 @@ Y lograr que se mostrara la informacion esperada por medio de la aplicacion.
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion_funcionando.jpg" alt="Aplicacion_funcionando" width="400"/>
   <br>
-  <em>Figura 20. Aplicación en funcionamiento.</em>
+  <em>Figura 21. Aplicación en funcionamiento.</em>
 </p>
 
 Con la solucion al problema del bluetooth se logro mostrar todas las letras del abecedario en lenguaje de señas por mediod la aplicación.
