@@ -298,8 +298,8 @@ Una vez recopilados los datos de posición de los dedos y del movimiento de la m
 Antes de realizar el envío, el sistema también verifica si la letra detectada es diferente a la última que fue enviada. Esta verificación se realiza para evitar repeticiones innecesarias en caso de que el usuario mantenga la misma posición de los dedos. Si la letra es nueva, se guarda como la última enviada y se transmite; si es la misma, el sistema simplemente continúa con la siguiente iteración del ciclo.
 
 <p align="center">
-  <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="700"/>
+  <img src="Fotos_proyecto/diagramaflujo.png" alt="Aplicacion_funcionando" width="700"/>
   <br>
-  <em>Figura 21. Diagrama de bloques del proyecto.</em>
+  <em>Figura 21. Diagrama de flujo del proyecto.</em>
 </p>
 
