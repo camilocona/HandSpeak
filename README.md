@@ -155,7 +155,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/Guante_2.jpg" alt="Guante_2" width="400"/>
   <br>
-  <em>Figura 9. Guante versión 2.0.</em>
+  <em>Figura 7. Guante versión 2.0.</em>
 </p>
 
 
@@ -165,7 +165,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/Montaje_Circuito_Guante_Sin_IMU.jpg" alt="Circuit_Sin_IMU" width="400"/>
   <br>
-  <em>Figura 10. Montaje del circuito sin IMU.</em>
+  <em>Figura 8. Montaje del circuito sin IMU.</em>
 </p>
 
 
@@ -178,7 +178,7 @@ $$
 <p align="center">
   <img src="Fotos_proyecto/PCB.jpg" alt="PCB" width="400"/>
   <br>
-  <em>Figura 11. Montaje en baquela universal.</em>
+  <em>Figura 9. Montaje en baquela universal.</em>
 </p>
 
 El siguiente paso en el desarrollo fue la implementación de un módulo Bluetooth como medio de comunicación entre el guante y un dispositivo externo. Paralelamente, se desarrolló una aplicación móvil encargada de recibir y visualizar las letras detectadas por el sistema. Esta aplicación permite interpretar las señas realizadas por el usuario y mostrarlas en la pantalla del celular.
@@ -186,13 +186,13 @@ El siguiente paso en el desarrollo fue la implementación de un módulo Bluetoot
 <p align="center">
   <img src="Fotos_proyecto/Circuito_completo.jpg" alt="Circuito_completo" width="400"/>
   <br>
-  <em>Figura 12. Circuito con módulo Bluetooth.</em>
+  <em>Figura 10. Circuito con módulo Bluetooth.</em>
 </p>
 
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion.jpg" alt="Aplicacion" width="400"/>
   <br>
-  <em>Figura 13. Aplicación creada.</em>
+  <em>Figura 11. Aplicación creada.</em>
 </p>
 
 Inicialmente se utilizó un módulo Bluetooth adquirido bajo la referencia HC-05. Sin embargo, durante las pruebas se detectaron inconsistencias en su funcionamiento que sugerían que el módulo no correspondía exactamente a dicha referencia, a pesar de haber sido adquirido como tal. Esta situación generó dificultades en el proceso de comunicación, lo que motivó una verificación más detallada.
@@ -201,7 +201,7 @@ Inicialmente se utilizó un módulo Bluetooth adquirido bajo la referencia HC-05
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-08.jpg" alt="Bluetooth_HC-08" width="400"/>
   <br>
-  <em>Figura 14. Módulo Bluetooth adquirido como HC-05, pero con comportamiento inconsistente respecto a dicha referencia.</em>
+  <em>Figura 12. Módulo Bluetooth adquirido como HC-05, pero con comportamiento inconsistente respecto a dicha referencia.</em>
 </p>
 
 Con la implementación de este módulo Bluetooth y la creación de la aplicación se presentaron los siguientes problemas:
@@ -210,7 +210,7 @@ Con la implementación de este módulo Bluetooth y la creación de la aplicació
 <p align="center">
   <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
   <br>
-  <em>Figura 15. Error al conectar la aplicación creada por Bluetooth.</em>
+  <em>Figura 13. Error al conectar la aplicación creada por Bluetooth.</em>
 </p>
 
 - La aplicación móvil no lograba establecer comunicación con el módulo Bluetooth, presentando un error de socket, lo que indicaba que no se estaba concretando una conexión efectiva entre el dispositivo móvil y el módulo.
@@ -220,7 +220,7 @@ Para diagnosticar el origen del problema, fue necesario utilizar la aplicación 
  <p align="center">
   <img src="Fotos_proyecto/Serial_bluetooth_terminal.jpg" alt="SBT" width="400"/>
   <br>
-  <em>Figura 16. Aplicacion Serial Bluetooth Terminal (SBT).</em>
+  <em>Figura 14. Aplicacion Serial Bluetooth Terminal (SBT).</em>
 </p>
 
 CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
@@ -231,14 +231,14 @@ En este caso, permitió visualizar los datos enviados desde la Raspberry Pi Pico
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_classic.jpg" alt="SBT_Classic" width="400"/>
   <br>
-  <em>Figura 17. Reconocimiento de dispositivos Bluetooth Classic.</em>
+  <em>Figura 15. Reconocimiento de dispositivos Bluetooth Classic.</em>
 </p>
  
 
 <p align="center">
   <img src="Fotos_proyecto/SBT_bluetooth_LE.jpg" alt="SBT_BLE" width="400"/>
   <br>
-  <em>Figura 18. Reconocimiento de dispositivos Bluetooth LE.</em>
+  <em>Figura 16. Reconocimiento de dispositivos Bluetooth LE.</em>
 </p>
 
 -Ahora sabiendo un poco mas de la aplicacion se procedió a verificar que si conectara el Bluetooth y se enviara correctamente la informaciónn desde la Rasberry Pi Pico a la aplicación. 
@@ -248,7 +248,7 @@ En este caso, permitió visualizar los datos enviados desde la Raspberry Pi Pico
 <p align="center">
   <img src="Fotos_proyecto/SBT_Comunicacion.jpg" alt="SBT_Comunicacion" width="400"/>
   <br>
-  <em>Figura 19. Comunicación entre Raspberry Pi Pico y SBT.</em>
+  <em>Figura 17. Comunicación entre Raspberry Pi Pico y SBT.</em>
 </p>
 
 
@@ -263,14 +263,14 @@ Para solucionar el problema, se reemplazó el módulo por uno que realmente corr
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-05.jpg" alt="Bluetooth_HC-05" width="400"/>
   <br>
-  <em>Figura 20. Módulo Bluetooth HC-05.</em>
+  <em>Figura 18. Módulo Bluetooth HC-05.</em>
 </p>
 
 
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion_funcionando.jpg" alt="Aplicacion_funcionando" width="400"/>
   <br>
-  <em>Figura 21. Aplicación en funcionamiento.</em>
+  <em>Figura 19. Aplicación en funcionamiento.</em>
 </p>
 
 Gracias a la solución implementada respecto al módulo Bluetooth, se logró establecer una comunicación estable entre la Raspberry Pi Pico y la aplicación móvil. Como resultado, fue posible mostrar correctamente todas las letras del abecedario en lenguaje de señas a través de la interfaz de la aplicación, permitiendo una interpretación fluida y precisa de los gestos realizados con el guante.
