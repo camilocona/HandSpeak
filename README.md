@@ -73,6 +73,20 @@ Durante la implementación de este montaje se presentaron los siguientes inconve
 - La salida del comparador entregaba un voltaje igual o inferior a 2 V, lo que provocaba que las entradas GPIO del microcontrolador no reconocieran correctamente los niveles lógicos. Esto generaba ambigüedad en la detección del estado alto o bajo, especialmente en presencia de ruido eléctrico.
 - Al utilizar un trimmer para ajustar el umbral de comparación, se observó una falta de precisión en ciertos casos, lo cual derivaba en errores en el proceso de comparación.
 
+---
+
+-Para corregir los problemas mencionados previamente, se optó por fijar el divisor de voltaje correspondiente al umbral de comparación en 3.3 V, eliminando el uso del trimmer para evitar errores de ajuste.
+
+-Además, se cambió la alimentación del circuito a 5 V, lo que requirió una recalibración de los divisores de voltaje asociados a cada sensor flex, a fin de garantizar lecturas correctas y compatibles con el nuevo nivel de referencia.
+
+
+
+<p align="center">
+  <img src="Fotos_proyecto/cal_5V.jpg" alt="cal_5V" width="400"/>
+  <br>
+  <em>Figura 8. Calculos con 5v.</em>
+</p>
+
 ## Resistencias de los sensores flex (Cálculos finales)
 
 ### Pulgar
@@ -143,21 +157,7 @@ $$
 #### UPDATES
 ---
 
-- Para corregir los anteriores problemas se opto por dejar el divisor de voltaje del umbral de comparacion fijo(sin trimmer) en 3.3V.
-- Se cambio la alimentacion del circuito a 5V,haciendo una recalibracion de los divisores de voltaje de cada sensores flex.
 
-<p align="center">
-  <img src="Fotos_proyecto/proto_5V.jpg" alt="Calculos_5v" width="400"/>
-  <br>
-  <em>Figura 7. Calculos con 3.3v.</em>
-</p>
-
-
-<p align="center">
-  <img src="Fotos_proyecto/cal_5V.jpg" alt="cal_5V" width="400"/>
-  <br>
-  <em>Figura 8. Calculos con 5v.</em>
-</p>
 
 - Se realizo la actualizacion de un nuevo guanto mas ergonomico el cual nos permitio una mejor lectura de los sensores Flex
 
