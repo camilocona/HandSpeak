@@ -311,7 +311,7 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
 
 ## Requisitos NO Funcionales
 <p align="center">
-  <img src="Fotos_proyecto/requisitosNOfuncionales.png" alt="Aplicacion_funcionando" width="600"/>
+  <img src="Fotos_proyecto/requisitosNOfuncionales1.png" alt="Aplicacion_funcionando" width="600"/>
   <br>
     <em>Figura 23. Requisitos NO funcionales del sistema.</em>
 </p>
