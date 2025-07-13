@@ -1,4 +1,3 @@
-
  /**
  * @file handspeak_main.c
  * @brief Programa principal para el proyecto HandSpeak en Raspberry Pi Pico.
