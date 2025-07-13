@@ -317,3 +317,27 @@ Antes de realizar el envío, el sistema también verifica si la letra detectada 
     <em>Figura 23. Requisitos NO funcionales del sistema.</em>
 </p>
 
+## Valor de materiales
+
+| **Descripción**                       | **Cantidad** | **Precio por unidad** | **Total**     |
+|--------------------------------------|--------------|------------------------|---------------|
+| Sensor flex                          | 5            | $36.000                | $180.000      |
+| Guante                               | 1            | $9.300                 | $9.300        |
+| Cinta aislante                       | 1            | $5.000                 | $5.000        |
+| Termoencogible                       | 1            | $2.500                 | $2.500        |
+| Baquela universal                    | 1            | $3.000                 | $3.000        |
+| Soldadura kester                     | 1            | $2.450                 | $2.450        |
+| Resistencias                         | 9            | $350                   | $3.150        |
+| Header hembra                        | 4            | $4.200                 | $4.200        |
+| Amp Operacional LM324                | 1            | $1.600                 | $1.600        |
+| Amp Operacional LM358                | 1            | $450                   | $450          |
+| Base para circuito integrado 8 pines | 1            | $200                   | $200          |
+| Raspberry Pi Pico W                  | 1            | $44.600                | $44.600       |
+| MPU GY-91                            | 1            | $28.200                | $28.200       |
+| Bluetooth HC-05                      | 1            | $16.200                | $16.200       |
+| Base para circuito integrado 14 pines| 1            | $400                   | $400          |
+| Protoboard mini                      | 1            | $2.850                 | $2.850        |
+| Cable micro USB                      | 1            | $12.000                | $12.000       |
+| Cable plano Ribon 20 hilos           | 1            | $6.500                 | $6.500        |
+
+**Total: $322.600**
