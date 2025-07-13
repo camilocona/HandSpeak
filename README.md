@@ -150,8 +150,6 @@ $$
 #### Mejoras en el diseño físico
 ---
 
-
-
 - Se realizó la actualización a un nuevo guante con un diseño más ergonómico, lo cual permitió una mejor sujeción de los sensores flex y, en consecuencia, una lectura más precisa y estable de sus valores de resistencia.
 
 <p align="center">
@@ -183,12 +181,12 @@ $$
   <em>Figura 11. Montaje en baquela universal.</em>
 </p>
 
-El siguiente paso en el desarrollo fue la implementación de un módulo Bluetooth como medio de comunicación entre el guante y un dispositivo externo. Paralelamente, se desarrolló una aplicación móvil encargada de recibir y visualizar las letras detectadas por el sistema. Esta aplicación permite interpretar las señas realizadas por el usuario y mostrarlas en la pantalla del celular,
+El siguiente paso en el desarrollo fue la implementación de un módulo Bluetooth como medio de comunicación entre el guante y un dispositivo externo. Paralelamente, se desarrolló una aplicación móvil encargada de recibir y visualizar las letras detectadas por el sistema. Esta aplicación permite interpretar las señas realizadas por el usuario y mostrarlas en la pantalla del celular.
 
 <p align="center">
   <img src="Fotos_proyecto/Circuito_completo.jpg" alt="Circuito_completo" width="400"/>
   <br>
-  <em>Figura 12. Circuito con bluetooth.</em>
+  <em>Figura 12. Circuito con módulo Bluetooth.</em>
 </p>
 
 <p align="center">
@@ -203,7 +201,7 @@ Inicialmente se utilizó un módulo Bluetooth adquirido bajo la referencia HC-05
 <p align="center">
   <img src="Fotos_proyecto/Bluetooth_HC-08.jpg" alt="Bluetooth_HC-08" width="400"/>
   <br>
-  <em>Figura 14. Bluetooth con la referencia mala.</em>
+  <em>Figura 14. Módulo Bluetooth adquirido como HC-05, pero con comportamiento inconsistente respecto a dicha referencia.</em>
 </p>
 
 Con la implementación de este módulo Bluetooth y la creación de la aplicación se presentaron los siguientes problemas:
@@ -212,15 +210,15 @@ Con la implementación de este módulo Bluetooth y la creación de la aplicació
 <p align="center">
   <img src="Fotos_proyecto/Error_bluetooth.jpg" alt="Error_bluetooth" width="400"/>
   <br>
-  <em>Figura 15. Error_bluetooth.</em>
+  <em>Figura 15. Error bluetooth.</em>
 </p>
 
-- La aplicacion no establecia una comunicacion con el modulo bluetooth. Entregaba un error de socket, lo que quiere decir que no se establecia una comunicacion entre el celular y el modulo bluetooth.
- 
-Para poder saber cual era el problema fue necesario descargar la aplicacion llamada Serial Bluetooth Terminal que se encuentra en la Play Store de google. Esto con el fin de descartar si el modulo que se instalo si estaba transmitiendo los datos que se querian enviar a la aplicacion movil o si era la aplicacion movil la que tenia el error.
+- La aplicación móvil no lograba establecer comunicación con el módulo Bluetooth, presentando un error de socket, lo que indicaba que no se estaba concretando una conexión efectiva entre el dispositivo móvil y el módulo.
+
+Para diagnosticar el origen del problema, fue necesario utilizar la aplicación Serial Bluetooth Terminal, disponible en la Google Play Store. Esta herramienta permitió verificar si el módulo Bluetooth instalado estaba efectivamente transmitiendo los datos esperados, o si el inconveniente se encontraba del lado de la aplicación móvil. Gracias a esta prueba se pudo aislar el problema y determinar con mayor precisión la causa del fallo en la comunicación.
 
  <p align="center">
-  <img src="Fotos_proyecto/Serial_Bluetooth_Terminal.jpg" alt="SBT" width="400"/>
+  <img src="Fotos_proyecto/Serial_bluetooth_terminal.jpg" alt="SBT" width="400"/>
   <br>
   <em>Figura 16. Aplicacion Serial Bluetooth Terminal (SBT).</em>
 </p>
