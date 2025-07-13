@@ -147,21 +147,21 @@ $$
 $$
 
 ---
-#### UPDATES
+#### Mejoras en el diseño físico
 ---
 
 
 
-- Se realizo la actualizacion de un nuevo guanto mas ergonomico el cual nos permitio una mejor lectura de los sensores Flex
+- Se realizó la actualización a un nuevo guante con un diseño más ergonómico, lo cual permitió una mejor sujeción de los sensores flex y, en consecuencia, una lectura más precisa y estable de sus valores de resistencia.
 
 <p align="center">
   <img src="Fotos_proyecto/Guante_2.jpg" alt="Guante_2" width="400"/>
   <br>
-  <em>Figura 9. Guante version 2.0.</em>
+  <em>Figura 9. Guante versión 2.0.</em>
 </p>
 
 
-- Se adacto el nuevo guante con el nuevo circuito de protoboard pero se encontro el problema de la protoboard, ya que esta trae las pistas muy anchas y las resistencias quedaban con mal contacto, generando valores erroneos en los divisores.
+- Se adaptó el nuevo guante al circuito en protoboard, sin embargo, se identificó un problema relacionado con el diseño físico de la protoboard: las pistas internas eran demasiado anchas, lo que provocaba un contacto deficiente con las resistencias. Esta situación generaba lecturas erróneas en los divisores de voltaje, afectando la precisión del sistema de detección.
 
 
 <p align="center">
@@ -171,8 +171,11 @@ $$
 </p>
 
 
-- Se opto como ultimo circuito un montaje en Baquela universal para evitar errores de contactos y de esta manera tener un circuito mas compacto.
-- Se agrego la IMU(GY91) al guante para iniciar las pruebas con movimiento, obteniendo buenos resultados con esta referencia de IMU.
+- Se optó finalmente por realizar el montaje del circuito sobre una baquela universal, con el objetivo de evitar errores de contacto frecuentes en la protoboard y lograr un diseño más compacto, robusto y confiable.
+
+- Se incorporó una IMU GY-91 al guante, permitiendo iniciar las pruebas con reconocimiento de movimiento. Esta adición fue muy importante para diferenciar letras que comparten el mismo patrón de posición de los dedos pero difieren en su dinámica. Por ejemplo, las letras "I" y "J" presentan configuraciones similares en cuanto a dedos alzados y retraídos; sin embargo, gracias a la IMU fue posible distinguir la letra "J" mediante la detección de movimiento, mejorando así la precisión del reconocimiento.
+
+
 
 <p align="center">
   <img src="Fotos_proyecto/PCB.jpg" alt="PCB" width="400"/>
@@ -180,7 +183,7 @@ $$
   <em>Figura 11. Montaje en baquela universal.</em>
 </p>
 
-El siguiente paso fue la implementacion del bluetooth como dispositivo de comunicación y de la creacion de una aplicación movil para mostrar las letras en lenguaje de señas a traves del celular.
+El siguiente paso en el desarrollo fue la implementación de un módulo Bluetooth como medio de comunicación entre el guante y un dispositivo externo. Paralelamente, se desarrolló una aplicación móvil encargada de recibir y visualizar las letras detectadas por el sistema. Esta aplicación permite interpretar las señas realizadas por el usuario y mostrarlas en la pantalla del celular,
 
 <p align="center">
   <img src="Fotos_proyecto/Circuito_completo.jpg" alt="Circuito_completo" width="400"/>
@@ -191,10 +194,10 @@ El siguiente paso fue la implementacion del bluetooth como dispositivo de comuni
 <p align="center">
   <img src="Fotos_proyecto/Aplicacion.jpg" alt="Aplicacion" width="400"/>
   <br>
-  <em>Figura 13. Aplicación.</em>
+  <em>Figura 13. Aplicación creada.</em>
 </p>
 
-Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia HC-05 o con esa referencia fue que se compro.
+Inicialmente se utilizó un módulo Bluetooth adquirido bajo la referencia HC-05. Sin embargo, durante las pruebas se detectaron inconsistencias en su funcionamiento que sugerían que el módulo no correspondía exactamente a dicha referencia, a pesar de haber sido adquirido como tal. Esta situación generó dificultades en el proceso de comunicación, lo que motivó una verificación más detallada.
 
 
 <p align="center">
@@ -203,7 +206,7 @@ Inicialmente se utilizo un modulo Bluetooth que aparentemente era de referencia 
   <em>Figura 14. Bluetooth con la referencia mala.</em>
 </p>
 
-Con la implementacion de este modulo bluetooth y la creacion de la aplicacion se presentaron los siguientes problemas:
+Con la implementación de este módulo Bluetooth y la creación de la aplicación se presentaron los siguientes problemas:
 
 
 <p align="center">
