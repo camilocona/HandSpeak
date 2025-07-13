@@ -223,7 +223,7 @@ Para diagnosticar el origen del problema, fue necesario utilizar la aplicación 
   <em>Figura 14. Aplicacion Serial Bluetooth Terminal (SBT).</em>
 </p>
 
-CONTEXTO SOBRE LA APLICACION SERIAL BLUETOOTH TERMINAL:
+Contexto sobre la aplicación Serial Bluetooth Terminal:
 La aplicación Serial Bluetooth Terminal fue utilizada como herramienta de diagnóstico para verificar la comunicación entre la Raspberry Pi Pico y el dispositivo móvil a través del módulo Bluetooth. Esta aplicación permite establecer una conexión mediante el puerto serial con módulos Bluetooth clásicos y BLE (Bluetooth Low Energy), ofreciendo así compatibilidad con una amplia gama de dispositivos.
 
 En este caso, permitió visualizar los datos enviados desde la Raspberry Pi Pico a través del módulo Bluetooth. Su uso fue importante para confirmar que el módulo estaba transmitiendo correctamente y descartar errores en la lógica de la aplicación móvil desarrollada para el proyecto.
@@ -275,7 +275,7 @@ Para solucionar el problema, se reemplazó el módulo por uno que realmente corr
 
 Gracias a la solución implementada respecto al módulo Bluetooth, se logró establecer una comunicación estable entre la Raspberry Pi Pico y la aplicación móvil. Como resultado, fue posible mostrar correctamente todas las letras del abecedario en lenguaje de señas a través de la interfaz de la aplicación, permitiendo una interpretación fluida y precisa de los gestos realizados con el guante.
 
-# Diagrama de Bloques
+## Diagrama de Bloques
 
 Los sensores flex se conectaron a los pines GPIO de la Raspberry Pi Pico a través de los divisores de voltaje previamente descritos. Esta etapa de acondicionamiento de señal permitió convertir las variaciones de resistencia generadas por la flexión de los dedos en niveles lógicos compatibles (3.3 V), facilitando así la detección binaria del estado de cada dedo (flexionado o extendido).
 
@@ -287,5 +287,19 @@ La comunicación entre la IMU y la Raspberry Pi Pico se estableció mediante el 
   <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="700"/>
   <br>
   <em>Figura 20. Diagrama de bloques del proyecto.</em>
+</p>
+
+## Diagrama de Flujo
+
+El proceso comienza con la lectura del estado de cada dedo a través de los pines GPIO de la Raspberry Pi Pico, donde se detecta si cada uno de ellos está flexionado o extendido, según la información entregada por los sensores flex. Posteriormente, se realiza la detección de movimiento utilizando la IMU MPU9250, conectada por el protocolo I²C. Esta unidad inercial proporciona datos del acelerómetro, que son analizados para determinar si existe un movimiento significativo en la mano del usuario.
+
+Una vez recopilados los datos de posición de los dedos y del movimiento de la mano, el sistema verifica si existe una letra asociada a dicho patrón combinado. Si no se reconoce ninguna letra válida, el sistema descarta la entrada. En cambio, si el patrón corresponde a una letra del alfabeto en lengua de señas, esta se transmite por UART al módulo HC-05, que la envía vía Bluetooth a un dispositivo móvil Android.
+
+Antes de realizar el envío, el sistema también verifica si la letra detectada es diferente a la última que fue enviada. Esta verificación se realiza para evitar repeticiones innecesarias en caso de que el usuario mantenga la misma posición de los dedos. Si la letra es nueva, se guarda como la última enviada y se transmite; si es la misma, el sistema simplemente continúa con la siguiente iteración del ciclo.
+
+<p align="center">
+  <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="700"/>
+  <br>
+  <em>Figura 21. Diagrama de bloques del proyecto.</em>
 </p>
 
