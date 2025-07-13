@@ -349,14 +349,29 @@ Este diseño se basó en la Raspberry Pi Pico W, un microcontrolador versátil p
 ### Recomendaciones para producción en masa
 Para una futura versión orientada a producción a gran escala, se recomienda rediseñar el sistema con los siguientes cambios:
 
--Cambio de microcontrolador:
+- Cambio de microcontrolador:
 Utilizar un microcontrolador que disponga de al menos 5 entradas ADC (convertidores analógico-digital), lo cual permitiría leer directamente las señales de los sensores flex sin necesidad de comparadores ni divisores de voltaje complejos, reduciendo significativamente el número de componentes, el consumo de energía y el tamaño del PCB.
 
--Reducción de componentes discretos:
+- Reducción de componentes discretos:
 Al eliminar los comparadores y resistencias adicionales, se simplifica el diseño del circuito, se mejora la confiabilidad y se facilita la fabricación automatizada.
 
--Integración del sistema en una PCB personalizada:
+- Integración del sistema en una PCB personalizada:
 Diseñar un circuito impreso a medida para el guante permitiría reducir costos por unidad, mejorar la ergonomía del sistema y facilitar su ensamblaje industrial.
 
+## Organización del trabajo en equipo
 
+Aunque todos los integrantes participaron activamente en todas las etapas del proyecto, a continuación se presenta una **distribución ideal de responsabilidades**, la cual ayudó a organizar las tareas durante el desarrollo:
 
+| **Integrante(s)**       | **Responsabilidad asignada (ideal)**         |
+|-------------------------|----------------------------------------------|
+| Camilo y Valentina      | Desarrollo del código en lenguaje C          |
+| Simón                   | Acondicionamiento de los sensores            |
+| Mario                   | Desarrollo de la aplicación móvil en Android |
+
+> **Nota:** Aunque esta fue la distribución inicial sugerida, **todos los miembros del equipo se involucraron activamente** en las múltiples áreas del proyecto, trabajando de manera colaborativa en la integración del sistema completo.
+
+## Conclusiones
+
+- Se identificaron limitaciones propias del uso de la Raspberry Pi Pico W, como la falta de entradas analógicas suficientes, lo cual obligó a utilizar comparadores con divisores de voltaje para cada sensor. En una versión futura orientada a producción, se recomienda reemplazar el microcontrolador por uno con al menos 5 entradas ADC, lo que simplificaría significativamente el hardware y reduciría el costo por unidad.
+- Durante el desarrollo, se presentaron desafíos técnicos importantes, como la incompatibilidad inicial del módulo Bluetooth adquirido (BLE en lugar de clásico), lo cual impidió la comunicación con la aplicación. Este problema se resolvió al reemplazarlo por un módulo HC-05 auténtico, logrando así una comunicación UART estable.
+- El proyecto HandSpeak logró implementar un sistema funcional capaz de interpretar el lenguaje de señas ligeramente modificado, letra por letra, utilizando sensores flex para detectar la posición de los dedos (estirados o flexionados), una unidad inercial (IMU GY-91) para reconocer movimientos característicos, y una aplicación móvil para mostrar el resultado al usuario final.
