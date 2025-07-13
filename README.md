@@ -284,7 +284,7 @@ Adicionalmente, se integró al sistema una unidad inercial GY-91, que incorpora 
 La comunicación entre la IMU y la Raspberry Pi Pico se estableció mediante el protocolo I²C, utilizando los pines GPIO 26 (SDA) y GPIO 27 (SCL). Por su parte, el módulo Bluetooth HC-05 fue conectado mediante el protocolo UART, usando los pines GPIO 16 (TX) y GPIO 17 (RX), lo que permitió transmitir de manera inalámbrica las letras detectadas hacia un dispositivo móvil Android que ejecutaba la aplicación desarrollada para el proyecto.
 
 <p align="center">
-  <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="400"/>
+  <img src="Fotos_proyecto/diagramabloques.png" alt="Aplicacion_funcionando" width="700"/>
   <br>
   <em>Figura 20. Diagrama de bloques del proyecto.</em>
 </p>
