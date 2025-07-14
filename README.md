@@ -240,7 +240,7 @@ En este caso, permitió visualizar los datos enviados desde la Raspberry Pi Pico
   <em>Figura 16. Reconocimiento de dispositivos Bluetooth LE.</em>
 </p>
 
--Ahora sabiendo un poco mas de la aplicacion se procedió a verificar que si conectara el Bluetooth y se enviara correctamente la informaciónn desde la Rasberry Pi Pico a la aplicación. 
+Ahora sabiendo un poco mas de la aplicacion se procedió a verificar que si conectara el Bluetooth y se enviara correctamente la informaciónn desde la Rasberry Pi Pico a la aplicación. 
 
 
 
